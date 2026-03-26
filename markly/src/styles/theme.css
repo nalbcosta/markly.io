@@ -1,0 +1,10 @@
+html[data-theme='dark'] body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  transition: background .2s, color .2s;
+}
+
+[data-theme='dark'] .card {
+  background: var(--surface);
+  border-color: var(--border);
+}

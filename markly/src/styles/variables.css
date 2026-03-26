@@ -1,0 +1,77 @@
+:root {
+    /* Light Theme */
+    --bg-base: #f8fafc;
+    --surface: #ffffff;
+    --surface-alt: #eef2ff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border: #e2e8f0;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --accent: #818cf8;
+    --accent-soft: #e0e7ff;
+
+    /* Error Theme (light) */
+    --error-background: #fef2f2;
+    --error-text: #b91c1c;
+    --error-border: #fca5a5;
+    --error-hover: #fee2e2;
+
+    /* Warn theme (light) */
+    --warn-background: #FFFBEB;
+    --warn-text: #B45309;
+    --warn-border: #FCD34D;
+    --warn-hover: #FEF3C7;
+
+    /* Info theme (light) */
+    --info-background: #EFF6FF;
+    --info-text: #1D4ED8;
+    --info-border: #93C5FD;
+    --info-hover: #DBEAFE;
+
+    /* Hover states (light) */
+    --hover-neutral-bg: #E2E8F0; /* Secondary cards and buttons */
+    --hover-brand-bg: #4338CA; /* Primary buttons and interactive elements */
+    --hover-brand-txt: #ffffff; /* Text on primary buttons when hovered */
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+    --font-mono: 'Noto Sans Mono', 'Courier New', monospace;
+}
+
+[data-theme="dark"]{
+    /* Dark Theme */
+    --bg-base: #0f172a;
+    --surface: #111827;
+    --surface-alt: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --border: #334155;
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --accent: #a5b4fc;
+    --accent-soft: #1e1b4b;
+
+    /* Error Theme (dark) */
+    --error-background: #450A0A;
+    --error-text: #FCA5A5;
+    --error-border: #7F1D1D;
+    --error-hover: #7F1D1D;
+
+    /* Warn theme (dark) */
+    --warn-background: #422006;
+    --warn-text: #FCD34D;
+    --warn-border: #78350F;
+    --warn-hover: #78350F;
+
+    /* Info theme (dark) */
+    --info-background: #172554;
+    --info-text: #93C5FD;
+    --info-border: #1E3A8A;
+    --info-hover: #1E3A8A;
+
+    /* Hover states (dark) */
+    --hover-neutral-bg: #1E293B; /* Secondary cards and buttons */
+    --hover-brand-bg: #4F46E5; /* Primary buttons and interactive elements */
+    --hover-brand-txt: #FFFFFF; /* Text on primary buttons when hovered */
+}
