@@ -1,5 +1,7 @@
 # Markly.io | 🇵🇹/🇧🇷
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
+
 Gerador de README.md para perfil do GitHub com preview em tempo real, templates organizados e exportação rápida em Markdown.
 
 ## Sobre o projeto
@@ -69,6 +71,8 @@ Este projeto está sob a licença MIT.
 
 ---
 # Markly.io | 🇺🇸
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
 
 A GitHub profile README generator with live preview, organized templates, and fast Markdown export.
 
