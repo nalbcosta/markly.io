@@ -1,0 +1,60 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.card-alt {
+  background: var(--surface-alt);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-soft {
+  background: var(--accent-soft);
+  color: var(--text-primary);
+}
+
+.badge-info {
+  background: var(--info-background);
+  border: 1px solid var(--info-border);
+  color: var(--info-text);
+}
+
+.badge-error {
+  background: var(--error-background);
+  border: 1px solid var(--error-border);
+  color: var(--error-text);
+}
+
+.accent {
+  color: var(--accent);
+}
+.accent-soft {
+  background: var(--accent-soft);
+}
+
+.hero-title, .headline-main, .impact-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.ui-text, .form-label, .card-text, .btn-label {
+  font-family: var(--font-body);
+}
+
+.code-block, .code-preview, .markdown-output {
+  font-family: var(--font-mono);
+}
