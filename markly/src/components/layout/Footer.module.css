@@ -1,0 +1,105 @@
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  background: color-mix(in srgb, var(--bg-base) 85%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.inner {
+  margin: 0 auto;
+  padding: 0.95rem 0 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  width: min(var(--content-max), calc(100% - (var(--layout-gutter) * 2)));
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logoMark {
+  width: 32px;
+  height: 32px;
+  border-radius: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.logoText {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.dot {
+  color: var(--accent);
+}
+
+.muted {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.center {
+  text-align: center;
+  justify-self: center;
+}
+
+.center a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.center a:hover {
+  color: var(--primary-hover);
+}
+
+.right {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  justify-self: end;
+}
+
+.right a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.right a:hover {
+  color: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    width: calc(100% - (var(--layout-gutter-mobile) * 2));
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+
+  .center {
+    text-align: left;
+    justify-self: auto;
+  }
+
+  .right {
+    justify-self: auto;
+  }
+}

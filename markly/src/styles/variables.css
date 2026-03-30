@@ -34,6 +34,14 @@
     --hover-brand-bg: #4338CA; /* Primary buttons and interactive elements */
     --hover-brand-txt: #ffffff; /* Text on primary buttons when hovered */
 
+    /* Layout tokens */
+    --layout-gutter: 2rem;
+    --layout-gutter-mobile: 1.25rem;
+    --content-max: 1200px;
+    --content-reading: 1120px;
+    --content-narrow: 760px;
+    --header-height: 68px;
+
     --font-heading: 'Playfair Display', serif;
     --font-body: 'DM Sans', 'Segoe UI', sans-serif;
     --font-mono: 'Noto Sans Mono', 'Courier New', monospace;
