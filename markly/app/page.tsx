@@ -1,5 +1,6 @@
 import { Card } from "@/components/Card/Card";
 import { Button } from "@/components/Button/Button";
+import { FeatureHighlightsSection } from "@/components/sections/FeatureHighlightsSection";
 import { Section } from "@/components/sections/Section";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import styles from "./page.module.css";
@@ -25,29 +26,7 @@ export default function LandingPage() {
           </div>
         </Card>
 
-        <Section size="xl" rounded="xl" variant="default" padding="lg" className={styles.sectionCard}>
-          <div className={styles.sectionHeader}>
-            <h2 className="ui-title">Por que equipes e devs escolhem o Markly</h2>
-            <p className="ui-text text-secondary">
-              Fluxo objetivo, resultado profissional e controle total sobre o conteudo do perfil.
-            </p>
-          </div>
-
-          <div className={styles.featureGrid}>
-            <article className={styles.featureItem}>
-              <h3>Templates estrategicos</h3>
-              <p>Estruturas criadas para destacar habilidades, projetos e resultados de forma clara.</p>
-            </article>
-            <article className={styles.featureItem}>
-              <h3>Editor com foco em produtividade</h3>
-              <p>Edite secoes rapidamente sem perder consistencia visual entre blocos.</p>
-            </article>
-            <article className={styles.featureItem}>
-              <h3>Exportacao pronta para uso</h3>
-              <p>Gere markdown limpo e copie para o GitHub sem ajustes manuais demorados.</p>
-            </article>
-          </div>
-        </Section>
+        <FeatureHighlightsSection id="templates" className={styles.sectionCard} />
 
         <Section
           id="como-funciona"

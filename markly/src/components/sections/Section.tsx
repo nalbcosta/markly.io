@@ -3,7 +3,7 @@ import styles from "./Section.module.css";
 
 type SectionSize = "sm" | "md" | "lg" | "xl" | "full";
 type SectionRounded = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "full";
-type SectionVariant = "default" | "primary" | "secondary" | "accent" | "error" | "warn" | "info";
+type SectionVariant = "default" | "primary" | "secondary" | "accent" | "error" | "warn" | "info" ;
 type Alignment = "start" | "center" | "end";
 type PaddingSize = "xs" | "sm" | "md" | "lg" | "xl";
 

@@ -1,0 +1,257 @@
+.section {
+  background: none;
+  border-color: none;
+  border: none;
+  box-shadow: none;
+}
+
+.layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  grid-template-areas: "preview content";
+  gap: clamp(1.2rem, 2.2vw, 2.1rem);
+  align-items: start;
+}
+
+.content {
+  grid-area: content;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 0.95rem;
+  min-width: 0;
+}
+
+.eyebrow {
+  display: flex;
+  width: fit-content;
+  align-items: end;
+  padding: 0.24rem 0.58rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--accent-soft) 68%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.content :global(.ui-title) {
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3.3rem);
+  line-height: 1.08;
+  text-align: right;
+}
+
+.content :global(.ui-text) {
+  margin: 0;
+  text-align: right;
+  line-height: 1.56;
+}
+
+.stateList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+  max-width: 31rem;
+}
+
+.stateButton {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0.78rem;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.stateButton span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.stateButton strong {
+  color: inherit;
+  font-size: 0.97rem;
+  line-height: 1.3;
+}
+
+.stateButton small {
+  color: inherit;
+  opacity: 0.95;
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.stateIconWrap {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--text-secondary) 13%, transparent);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.stateIcon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.stateButton:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: color-mix(in srgb, var(--surface) 85%, var(--accent-soft));
+  color: var(--text-primary);
+  transform: translateX(2px);
+}
+
+.stateButtonActive {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: color-mix(in srgb, var(--surface) 90%, var(--accent-soft));
+  color: var(--text-primary);
+}
+
+.stateButtonActive .stateIconWrap {
+  color: #ffffff;
+  background: var(--primary);
+}
+
+.stateButton:focus-visible {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.previewCard {
+  grid-area: preview;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0.76rem;
+  border-radius: 1.35rem;
+  background: color-mix(in srgb, var(--surface) 94%, var(--accent-soft) 6%);
+  border: 1px solid color-mix(in srgb, var(--border) 74%, var(--accent) 26%);
+  animation: panel-in 220ms ease;
+}
+
+.previewVisual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--border) 70%, var(--accent) 30%);
+  background:
+    radial-gradient(circle at 80% 18%, color-mix(in srgb, var(--accent) 18%, transparent) 0 17%, transparent 35%),
+    radial-gradient(circle at 16% 72%, color-mix(in srgb, var(--primary) 16%, transparent) 0 19%, transparent 36%),
+    linear-gradient(148deg, color-mix(in srgb, var(--surface-alt) 80%, var(--surface)) 0%, color-mix(in srgb, var(--accent-soft) 55%, var(--surface)) 100%);
+}
+
+.previewBadge {
+  position: absolute;
+  top: 0.72rem;
+  left: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.24rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 44%, var(--border));
+  background: color-mix(in srgb, var(--surface) 78%, var(--accent-soft));
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  gap: 0.35rem;
+}
+
+.previewBadgeIcon {
+  width: 0.82rem;
+  height: 0.82rem;
+}
+
+.previewCard h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.previewCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.previewList {
+  margin: 0;
+  list-style: none;
+  padding-left: 1rem;
+  color: var(--text-secondary);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.previewList li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  line-height: 1.45;
+}
+
+.bulletIcon {
+  flex-shrink: 0;
+  width: 0.86rem;
+  height: 0.86rem;
+  color: var(--primary);
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "preview";
+  }
+
+  .content :global(.ui-title),
+  .content :global(.ui-text) {
+    text-align: center;
+    max-width: none;
+  }
+
+  .eyebrow {
+    align-self: center;
+  }
+
+  .stateList {
+    max-width: none;
+  }
+
+  .stateButton {
+    border-radius: 0.9rem;
+  }
+}
