@@ -8,6 +8,10 @@
   background: var(--surface-alt);
 }
 
+.text-primary {
+  color: var(--text-primary);
+}
+
 .text-secondary {
   color: var(--text-secondary);
 }
@@ -47,7 +51,7 @@
 
 .hero-title, .headline-main, .impact-text {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.1;
 }
 

@@ -3,17 +3,18 @@
     align-items: center;
     user-select: none;
     flex-shrink: 0;
+    color: var(--logo-wordmark);
 }
 
 .wordmark {
     font-family: var(--font-heading);
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: var(--text-primary);
+    color: currentColor;
     line-height: 1;
     white-space: nowrap;
 }
 
 .tld {
-    color: var(--accent);
+    color: var(--logo-tld);
 }

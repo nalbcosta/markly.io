@@ -11,6 +11,45 @@
     --accent: #818cf8;
     --accent-soft: #e0e7ff;
 
+    /* Hero tokens (light) */
+    --hero-bg-start: #fcfdff;
+    --hero-bg-mid: #f3f6ff;
+    --hero-bg-end: #ecf1ff;
+    --hero-glow-a: rgba(129, 140, 248, 0.13);
+    --hero-glow-b: rgba(99, 102, 241, 0.11);
+    --hero-border: rgba(129, 140, 248, 0.28);
+    --hero-text-primary: var(--text-primary);
+    --hero-text-secondary: color-mix(in srgb, var(--text-secondary) 92%, #ffffff);
+    --hero-badge-bg: color-mix(in srgb, var(--accent-soft) 75%, transparent);
+    --hero-badge-border: color-mix(in srgb, var(--accent) 40%, var(--border));
+    --hero-badge-text: var(--text-secondary);
+    --hero-stat-bg: color-mix(in srgb, var(--surface) 78%, var(--accent-soft));
+    --hero-stat-border: color-mix(in srgb, var(--border) 70%, var(--accent) 30%);
+    --hero-stat-strong: var(--text-primary);
+    --hero-stat-muted: var(--text-secondary);
+
+    /* CTA tokens (light) */
+    --cta-bg-start: #f2f5ff;
+    --cta-bg-mid: #e8eeff;
+    --cta-bg-end: #dde6ff;
+    --cta-border: color-mix(in srgb, var(--accent) 35%, var(--border));
+    --cta-text-primary: #192041;
+    --cta-text-secondary: color-mix(in srgb, var(--text-secondary) 88%, #ffffff);
+    --cta-button-main-bg: var(--primary);
+    --cta-button-main-text: #ffffff;
+    --cta-button-main-hover-bg: var(--primary-hover);
+    --cta-button-ghost-text: color-mix(in srgb, var(--primary) 78%, #111827);
+    --cta-button-ghost-border: color-mix(in srgb, var(--primary) 40%, #bcc8ff);
+    --cta-button-ghost-hover-bg: color-mix(in srgb, var(--primary) 12%, transparent);
+    --cta-button-ghost-hover-text: color-mix(in srgb, var(--primary-hover) 88%, #0f172a);
+
+    /* Logo tokens (light) */
+    --logo-mark-bg: var(--primary);
+    --logo-mark-face: #ffffff;
+    --logo-mark-face-muted: color-mix(in srgb, #ffffff 56%, transparent);
+    --logo-wordmark: var(--text-primary);
+    --logo-tld: var(--accent);
+
     /* Error Theme (light) */
     --error-background: #fef2f2;
     --error-text: #b91c1c;
@@ -59,6 +98,45 @@
     --primary-hover: #4f46e5;
     --accent: #a5b4fc;
     --accent-soft: #1e1b4b;
+
+    /* Hero tokens (dark) */
+    --hero-bg-start: #111a3f;
+    --hero-bg-mid: #1d2f6f;
+    --hero-bg-end: #1a2457;
+    --hero-glow-a: rgba(129, 140, 248, 0.18);
+    --hero-glow-b: rgba(99, 102, 241, 0.2);
+    --hero-border: rgba(165, 180, 252, 0.28);
+    --hero-text-primary: #ffffff;
+    --hero-text-secondary: rgba(241, 245, 249, 0.95);
+    --hero-badge-bg: rgba(224, 231, 255, 0.14);
+    --hero-badge-border: rgba(224, 231, 255, 0.28);
+    --hero-badge-text: #e2e8f0;
+    --hero-stat-bg: rgba(15, 23, 42, 0.24);
+    --hero-stat-border: rgba(148, 163, 184, 0.26);
+    --hero-stat-strong: #ffffff;
+    --hero-stat-muted: rgba(226, 232, 240, 0.92);
+
+    /* CTA tokens (dark) */
+    --cta-bg-start: #4b45c7;
+    --cta-bg-mid: #3d36a7;
+    --cta-bg-end: #2e287f;
+    --cta-border: rgba(165, 180, 252, 0.38);
+    --cta-text-primary: #ffffff;
+    --cta-text-secondary: rgba(226, 232, 240, 0.93);
+    --cta-button-main-bg: rgba(248, 250, 252, 0.16);
+    --cta-button-main-text: #ffffff;
+    --cta-button-main-hover-bg: rgba(248, 250, 252, 0.25);
+    --cta-button-ghost-text: #e2e8f0;
+    --cta-button-ghost-border: rgba(226, 232, 240, 0.52);
+    --cta-button-ghost-hover-bg: rgba(226, 232, 240, 0.14);
+    --cta-button-ghost-hover-text: #ffffff;
+
+    /* Logo tokens (dark) */
+    --logo-mark-bg: color-mix(in srgb, var(--primary) 84%, #818cf8);
+    --logo-mark-face: #ffffff;
+    --logo-mark-face-muted: color-mix(in srgb, #ffffff 56%, transparent);
+    --logo-wordmark: var(--text-primary);
+    --logo-tld: color-mix(in srgb, var(--accent) 90%, #ffffff);
 
     /* Error Theme (dark) */
     --error-background: #450A0A;

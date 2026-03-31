@@ -108,7 +108,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 
     // Router-based navigation
     if (isRouterProps(props)) {
-        const { route, ...buttonRest } = props;
+        const { route, ...buttonRest } = rest as Omit<RouterButtonProps, keyof BaseButtonProps>;
 
         const handleClick = useCallback(
             (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -135,16 +135,17 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
 
     // Link-based navigation
     if (isLinkProps(props)) {
-        const { href, isExternal, ...linkRest } = props;
+        const { href, isExternal, ...linkRest } = rest as Omit<LinkButtonProps, keyof BaseButtonProps>;
 
-        if (isExternal) {
+        // Hash links and external links use native anchor
+        if (isExternal || href.startsWith("#")) {
             return (
                 <a
                     ref={ref as React.Ref<HTMLAnchorElement>}
                     href={href}
                     className={baseClassNames}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
                     aria-disabled={disabled || isLoading}
                     {...(linkRest as AnchorHTMLAttributes<HTMLAnchorElement>)}
                 >
@@ -154,15 +155,12 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
         }
 
         return (
-            <Link href={href} legacyBehavior>
-                <a
-                    ref={ref as React.Ref<HTMLAnchorElement>}
-                    className={baseClassNames}
-                    aria-disabled={disabled || isLoading}
-                    {...(linkRest as AnchorHTMLAttributes<HTMLAnchorElement>)}
-                >
-                    {content}
-                </a>
+            <Link
+                href={href}
+                className={baseClassNames}
+                {...(linkRest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+            >
+                {content}
             </Link>
         );
     }

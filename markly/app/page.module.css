@@ -1,47 +1,250 @@
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
-}
-
 .welcomeCard {
   width: 100%;
   margin: 0 auto;
-  padding: clamp(1.5rem, 2vw, 2.5rem);
+  padding: clamp(2rem, 4vw, 3.5rem);
   background:
-    radial-gradient(circle at 12% 24%, rgba(129, 140, 248, 0.22) 0 14%, transparent 16%),
-    radial-gradient(circle at 88% 76%, rgba(99, 102, 241, 0.2) 0 16%, transparent 18%),
-    linear-gradient(135deg, #17163f 0%, #232167 56%, #292f8f 100%);
-  border: 1px solid rgba(165, 180, 252, 0.28);
-  color: #f8fafc;
+    radial-gradient(circle at 12% 18%, var(--hero-glow-a) 0 14%, transparent 30%),
+    radial-gradient(circle at 87% 84%, var(--hero-glow-b) 0 16%, transparent 32%),
+    linear-gradient(145deg, var(--hero-bg-start) 0%, var(--hero-bg-mid) 52%, var(--hero-bg-end) 100%);
+  border: 1px solid var(--hero-border);
+  color: var(--hero-text-primary);
+  gap: 1.4rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.36rem 0.78rem;
+  border-radius: 9999px;
+  background: var(--hero-badge-bg);
+  border: 1px solid var(--hero-badge-border);
+  color: var(--hero-badge-text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .welcomeCard :global(.ui-title) {
-  color: #ffffff;
-  font-size: clamp(5rem, 4vw, 2.5rem);
-  font-weight: 800;
-  margin-bottom: 0.6rem;
+  color: var(--hero-text-primary);
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  margin: 0;
+  max-width: 18ch;
   text-align: center;
+  line-height: 1.15;
 }
 
 .welcomeCard :global(.ui-text) {
-  color: rgba(241, 245, 249, 0.95);
-  line-height: 1.65;
-  max-width: 80%;
+  color: var(--hero-text-secondary);
+  line-height: 1.62;
+  max-width: 64ch;
   text-align: center;
 }
 
-.actions {
+.heroActions {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+.heroStats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
-  border-radius: 1.2rem;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.9rem 0.8rem;
+  border-radius: 0.9rem;
+  background: var(--hero-stat-bg);
+  border: 1px solid var(--hero-stat-border);
+  text-align: center;
+}
+
+.statItem strong {
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  color: var(--hero-stat-strong);
+}
+
+.statItem span {
+  font-size: 0.84rem;
+  color: var(--hero-stat-muted);
+}
+
+.sectionCard {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.sectionHeader :global(.ui-title) {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.1vw, 2rem);
+}
+
+.sectionHeader :global(.ui-text) {
+  margin: 0;
+  max-width: 62ch;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.featureItem {
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+}
+
+.featureItem h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.featureItem p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.stepItem {
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.stepNumber {
+  display: inline-flex;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--accent-soft);
+}
+
+.stepItem h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.stepItem p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.52;
+}
+
+.ctaSection {
+  width: 100%;
+  margin-top: 1.25rem;
+  background: linear-gradient(145deg, var(--cta-bg-start) 0%, var(--cta-bg-mid) 54%, var(--cta-bg-end) 100%);
+  border-color: var(--cta-border);
+  color: var(--cta-text-primary);
+}
+
+.ctaContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.9rem;
+}
+
+.ctaContent :global(.ui-title) {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  color: var(--cta-text-primary);
+}
+
+.ctaContent :global(.ui-text) {
+  margin: 0;
+  max-width: 56ch;
+  color: var(--cta-text-secondary);
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.35rem;
+}
+
+.ctaPrimaryButton.ctaPrimaryButton {
+  background: var(--cta-button-main-bg);
+  color: var(--cta-button-main-text);
+  border-color: transparent;
+}
+
+.ctaPrimaryButton.ctaPrimaryButton:hover {
+  background: var(--cta-button-main-hover-bg);
+  color: var(--cta-button-main-text);
+  border-color: transparent;
+}
+
+.ctaGhostButton.ctaGhostButton {
+  background: transparent;
+  color: var(--cta-button-ghost-text);
+  border-color: var(--cta-button-ghost-border);
+}
+
+.ctaGhostButton.ctaGhostButton:hover {
+  background: var(--cta-button-ghost-hover-bg);
+  color: var(--cta-button-ghost-hover-text);
+  border-color: var(--cta-button-ghost-border);
 }
 
 @media (max-width: 768px) {
   .welcomeCard {
-    padding: 1.35rem;
+    padding: 1.5rem;
+  }
+
+  .heroStats,
+  .featureGrid,
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroActions,
+  .ctaActions {
+    width: 100%;
+  }
+
+  .heroActions :global(a),
+  .heroActions :global(button),
+  .ctaActions :global(a),
+  .ctaActions :global(button) {
+    width: 100%;
   }
 }

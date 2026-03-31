@@ -30,17 +30,17 @@ export function MarklyLogo({ variant = 'full', size = 'md', className }: MarklyL
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
             >
-                <rect width="40" height="40" rx="10" fill="var(--primary)" />
+                <rect width="40" height="40" rx="10" fill="var(--logo-mark-bg)" />
 
                 {/* Left peak — outer face (lit) */}
-                <polygon points="13,9 6,33 13,33" fill="white" />
+                <polygon points="13,9 6,33 13,33" fill="var(--logo-mark-face)" />
                 {/* Left peak — valley slope (recessed) */}
-                <polygon points="13,9 20,20 20,33 13,33" fill="white" fillOpacity="0.5" />
+                <polygon points="13,9 20,20 20,33 13,33" fill="var(--logo-mark-face-muted)" />
 
                 {/* Right peak — valley slope (recessed) */}
-                <polygon points="20,20 27,9 27,33 20,33" fill="white" fillOpacity="0.5" />
+                <polygon points="20,20 27,9 27,33 20,33" fill="var(--logo-mark-face-muted)" />
                 {/* Right peak — outer face (lit) */}
-                <polygon points="27,9 34,33 27,33" fill="white" />
+                <polygon points="27,9 34,33 27,33" fill="var(--logo-mark-face)" />
             </svg>
 
             {variant === 'full' && (

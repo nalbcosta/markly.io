@@ -1,5 +1,6 @@
 import styles from "./Header.module.css";
 import { MarklyLogo } from "@/assets/MarklyLogo";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
     return (
@@ -16,8 +17,9 @@ export function Header() {
                 </nav>
 
                 <div className={styles.actions}>
-                    <button className={styles.secondary}>Entrar</button>
-                    <button className={styles.primary}>Começar agora</button>
+                    <ThemeToggle />
+                    <button className={styles.buttonSecondary}>Entrar</button>
+                    <button className={styles.buttonPrimary}>Começar agora</button>
                 </div>
             </div>
         </header>

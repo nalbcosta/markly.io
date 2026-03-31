@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { DM_Sans, Noto_Sans_Mono, Playfair_Display } from "next/font/google";
 import "@/styles/globals.css";
 
@@ -33,7 +36,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${dmSans.variable} ${notoMono.variable} ${playfair.variable}`}>
-        {children}
+        <ThemeProvider>
+          <Header/>
+          {children}
+          <Footer/>
+        </ThemeProvider>
       </body>
     </html>
   );
