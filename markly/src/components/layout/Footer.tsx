@@ -1,4 +1,5 @@
 import styles from './Footer.module.css';
+import { MarklyLogo } from "@/assets/MarklyLogo";
 
 export function Footer() {
   return (
@@ -6,10 +7,7 @@ export function Footer() {
       <div className={styles.inner}>
         <div className={styles.left}>
           <div className={styles.brandRow}>
-            <span className={styles.logoMark}>M</span>
-            <span className={styles.logoText}>
-              Markly<span className={styles.dot}>.io</span>
-            </span>
+            <MarklyLogo size="sm" />
           </div>
           <span className={styles.muted}>
             Gerador de README de perfil do GitHub.

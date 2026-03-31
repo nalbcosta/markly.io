@@ -1,12 +1,12 @@
 import styles from "./Header.module.css";
+import { MarklyLogo } from "@/assets/MarklyLogo";
 
 export function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.inner}>
                 <div className={styles.logoArea}>
-                    <span className={styles.logoMark}>M</span>
-                    <span className={styles.logoText}>Markly<span className={styles.dot}>.io</span></span>
+                    <MarklyLogo size="sm" />
                 </div>
 
                 <nav className={styles.nav}>
