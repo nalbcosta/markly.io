@@ -1,0 +1,214 @@
+.page {
+  padding-inline: var(--layout-gutter);
+}
+
+.hero {
+  display: grid;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--hero-border);
+  background:
+    radial-gradient(circle at 85% 18%, var(--hero-glow-b) 0 12%, transparent 36%),
+    linear-gradient(145deg, var(--hero-bg-start) 0%, var(--hero-bg-mid) 55%, var(--hero-bg-end) 100%);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  color: var(--hero-text-primary);
+}
+
+.hero p {
+  margin: 0;
+  color: var(--hero-text-secondary);
+  line-height: 1.55;
+  max-width: 72ch;
+}
+
+.modeSwitch {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 0.85rem;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-alt) 75%, var(--surface));
+  padding: 0.2rem;
+}
+
+.modeButton {
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-weight: 700;
+  border-radius: 0.65rem;
+  padding: 0.45rem 0.95rem;
+  cursor: pointer;
+}
+
+.modeButtonActive {
+  background: var(--surface);
+  color: var(--primary);
+}
+
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+.searchField {
+  display: grid;
+  gap: 0.35rem;
+  width: min(100%, 30rem);
+}
+
+.searchField span {
+  font-weight: 600;
+}
+
+.searchField input {
+  width: 100%;
+  min-height: 2.65rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--surface);
+  color: var(--text-primary);
+  font: inherit;
+  padding: 0.55rem 0.75rem;
+}
+
+.searchField input:focus {
+  outline: 2px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  outline-offset: 2px;
+}
+
+.resultsInfo {
+  margin: 0;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.zeroCard {
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: linear-gradient(165deg, color-mix(in srgb, var(--surface-alt) 70%, var(--surface)) 0%, var(--surface) 100%);
+}
+
+.zeroCard h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.zeroCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  max-width: 68ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.templateCard {
+  gap: 0.75rem;
+  height: 100%;
+  min-height: 21.25rem;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.cardHeader span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-alt) 72%, var(--surface));
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.33rem 0.55rem;
+}
+
+.templateCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.emptyState {
+  gap: 0.5rem;
+}
+
+.emptyState h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.emptyState p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.pagination span {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-inline: var(--layout-gutter-mobile);
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchField {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pagination {
+    gap: 0.5rem;
+  }
+
+  .pagination span {
+    font-size: 0.9rem;
+  }
+}

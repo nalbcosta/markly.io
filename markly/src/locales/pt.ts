@@ -89,6 +89,111 @@ export type TranslationDictionary = {
 			answer: string;
 		}>;
 	};
+	editor: {
+		title: string;
+		description: string;
+		templateTitle: string;
+		templateDescription: string;
+		templateLabel: string;
+		formTitle: string;
+		formDescription: string;
+		addFieldTitle: string;
+		addFieldDescription: string;
+		fieldNameLabel: string;
+		fieldNamePlaceholder: string;
+		fieldTypeLabel: string;
+		fieldTypeText: string;
+		fieldTypeTextarea: string;
+		addFieldAction: string;
+		removeFieldAction: string;
+		emptyFields: string;
+		previewTitle: string;
+		previewDescription: string;
+		previewCompiled: string;
+		previewMarkdown: string;
+		copyMarkdown: string;
+		copiedMarkdown: string;
+		emptyPreview: string;
+		customFieldPlaceholder: string;
+		markdownFallbackTitle: string;
+		templates: {
+			profile: {
+				name: string;
+				description: string;
+			};
+			maintainer: {
+				name: string;
+				description: string;
+			};
+			freelancer: {
+				name: string;
+				description: string;
+			};
+		};
+		fields: {
+			title: {
+				label: string;
+				placeholder: string;
+			};
+			subtitle: {
+				label: string;
+				placeholder: string;
+			};
+			about: {
+				label: string;
+				placeholder: string;
+			};
+			skills: {
+				label: string;
+				placeholder: string;
+			};
+			stack: {
+				label: string;
+				placeholder: string;
+			};
+			projects: {
+				label: string;
+				placeholder: string;
+			};
+			experience: {
+				label: string;
+				placeholder: string;
+			};
+			contact: {
+				label: string;
+				placeholder: string;
+			};
+			cta: {
+				label: string;
+				placeholder: string;
+			};
+		};
+	};
+	templatesPage: {
+		title: string;
+		description: string;
+		startTitle: string;
+		startDescription: string;
+			previewAlt: string;
+		modeAriaLabel: string;
+		modeBrowse: string;
+		modeStart: string;
+		searchLabel: string;
+		searchPlaceholder: string;
+		resultsCountLabel: string;
+		fieldsCountLabel: string;
+		emptyTitle: string;
+		emptyDescription: string;
+		blankTitle: string;
+		blankDescription: string;
+		blankAction: string;
+		openTemplateAction: string;
+		useTemplateAction: string;
+		paginationAriaLabel: string;
+		previousPage: string;
+		nextPage: string;
+		pageLabel: string;
+	};
 };
 
 export const pt: TranslationDictionary = {
@@ -221,5 +326,112 @@ export const pt: TranslationDictionary = {
 					"Sim, a segurança é prioridade. Seus dados são processados de forma segura e privada. Não compartilhamos informações com terceiros.",
 			},
 		],
+	},
+	editor: {
+		title: "Editor modular de Markdown",
+		description:
+			"Escolha um template, preencha os campos e acompanhe no preview como seu README final vai ficar em tempo real.",
+		templateTitle: "Template inicial",
+		templateDescription: "Selecione uma base e personalize do seu jeito com campos removiveis e adicionais.",
+		templateLabel: "Escolha o template",
+		formTitle: "Formulario do README",
+		formDescription: "Edite os campos abaixo. Tudo atualiza automaticamente no painel de preview.",
+		addFieldTitle: "Adicionar campo personalizado",
+		addFieldDescription: "Inclua novos campos alem da estrutura inicial do template.",
+		fieldNameLabel: "Nome do campo",
+		fieldNamePlaceholder: "Ex.: Hobbies, Certificacoes, Objetivos",
+		fieldTypeLabel: "Tipo do campo",
+		fieldTypeText: "Linha unica",
+		fieldTypeTextarea: "Texto longo",
+		addFieldAction: "Adicionar campo",
+		removeFieldAction: "Remover",
+		emptyFields: "Nenhum campo no formulario. Adicione um campo para continuar.",
+		previewTitle: "Preview final",
+		previewDescription: "Troque entre o markdown bruto e o preview compilado.",
+		previewCompiled: "Preview compilado",
+		previewMarkdown: "Markdown",
+		copyMarkdown: "Copiar markdown",
+		copiedMarkdown: "Copiado",
+		emptyPreview: "Preencha o formulario para gerar o preview.",
+		customFieldPlaceholder: "Descreva o conteudo deste campo",
+		markdownFallbackTitle: "Meu README",
+		templates: {
+			profile: {
+				name: "Perfil profissional",
+				description: "Ideal para destacar quem voce e, habilidades e projetos principais.",
+			},
+			maintainer: {
+				name: "Mantenedor open source",
+				description: "Focado em stack, projetos ativos e chamada para contribuicoes.",
+			},
+			freelancer: {
+				name: "Freelancer",
+				description: "Estrutura para apresentar experiencia, servicos e pontos de contato.",
+			},
+		},
+		fields: {
+			title: {
+				label: "Titulo principal",
+				placeholder: "Ex.: Ola, eu sou Nicole Alberti",
+			},
+			subtitle: {
+				label: "Subtitulo",
+				placeholder: "Ex.: Desenvolvedora Full-Stack focada em produtos web",
+			},
+			about: {
+				label: "Sobre mim",
+				placeholder: "Conte sua proposta de valor, foco atual e areas de interesse.",
+			},
+			skills: {
+				label: "Habilidades",
+				placeholder: "Liste habilidades tecnicas e comportamentais relevantes.",
+			},
+			stack: {
+				label: "Stack",
+				placeholder: "Ex.: Next.js, Laravel, TypeScript, Docker",
+			},
+			projects: {
+				label: "Projetos em destaque",
+				placeholder: "Adicione projetos, resultados e links importantes.",
+			},
+			experience: {
+				label: "Experiencia",
+				placeholder: "Resumo de experiencias profissionais e entregas relevantes.",
+			},
+			contact: {
+				label: "Contato",
+				placeholder: "Ex.: LinkedIn, email, portfolio, Calendly",
+			},
+			cta: {
+				label: "Chamada para acao",
+				placeholder: "Ex.: Aberta para colaborações e novos desafios",
+			},
+		},
+	},
+	templatesPage: {
+		title: "Templates do Markly",
+		description: "Veja os templates existentes, busque por estilo e escolha o melhor ponto de partida.",
+		startTitle: "Comece com um template ou do zero",
+		startDescription:
+			"Escolha uma base pronta para abrir direto no editor, ou inicie um README vazio para montar sua estrutura.",
+		previewAlt: "Previa do template",
+		modeAriaLabel: "Modo da pagina de templates",
+		modeBrowse: "Explorar templates",
+		modeStart: "Comecar agora",
+		searchLabel: "Buscar templates",
+		searchPlaceholder: "Buscar por nome ou descricao",
+		resultsCountLabel: "templates encontrados",
+		fieldsCountLabel: "campos",
+		emptyTitle: "Nenhum template encontrado",
+		emptyDescription: "Tente outro termo de busca para encontrar um template compatível.",
+		blankTitle: "Comecar do zero",
+		blankDescription: "Abrir o editor sem campos iniciais para construir seu README em branco.",
+		blankAction: "Iniciar sem template",
+		openTemplateAction: "Abrir no editor",
+		useTemplateAction: "Usar este template",
+		paginationAriaLabel: "Paginacao de templates",
+		previousPage: "Anterior",
+		nextPage: "Proxima",
+		pageLabel: "Pagina",
 	},
 };

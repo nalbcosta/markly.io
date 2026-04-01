@@ -10,7 +10,9 @@ import { useLocale } from "@/hooks/useLocale";
 import styles from "./page.module.css";
 
 export default function LandingPage() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
+  const editorRoute = `/${locale}/editor`;
+  const templatesRoute = `/${locale}/templates`;
   const howItWorksSteps = [
     {
       title: t("landing.howItWorks.step1.title"),
@@ -35,7 +37,7 @@ export default function LandingPage() {
           <p className="ui-text text-secondary">{t("landing.hero.description")}</p>
 
           <div className={styles.heroActions}>
-            <Button route="/editor" variant="primary" size="lg" rounded="lg">
+            <Button route={editorRoute} variant="primary" size="lg" rounded="lg">
               {t("landing.hero.startNow")}
             </Button>
             <Button href="#how-it-works" variant="outline" size="lg" rounded="lg">
@@ -82,10 +84,10 @@ export default function LandingPage() {
             <h2 className="ui-title">{t("landing.cta.title")}</h2>
             <p className="ui-text">{t("landing.cta.description")}</p>
             <div className={styles.ctaActions}>
-              <Button route="/editor" variant="primary" size="lg" rounded="lg">
+              <Button route={editorRoute} variant="primary" size="lg" rounded="lg">
                 {t("landing.cta.createReadme")}
               </Button>
-              <Button href="/templates" variant="ghost" size="lg" rounded="lg" className={styles.ctaGhostButton}>
+              <Button href={templatesRoute} variant="ghost" size="lg" rounded="lg" className={styles.ctaGhostButton}>
                 {t("landing.cta.viewTemplates")}
               </Button>
             </div>
