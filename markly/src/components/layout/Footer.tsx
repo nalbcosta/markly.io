@@ -3,10 +3,13 @@
 import styles from './Footer.module.css';
 import { MarklyLogo } from "@/assets/MarklyLogo";
 import { useLocale } from "@/hooks/useLocale";
+import { FaGithub } from 'react-icons/fa6';
 import Link from "next/link";
 
 export function Footer() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
+  const year = new Date().getFullYear();
+  const navTitle = locale === "en" ? "Navigation" : "Navegacao";
 
   return (
     <footer className={styles.footer}>
@@ -15,20 +18,29 @@ export function Footer() {
           <div className={styles.brandRow}>
             <MarklyLogo size="sm" />
           </div>
-          <span className={styles.muted}>
+          <span className={styles.tagline}>
             {t("footer.tagline")}
+          </span>
+          <span className={styles.meta}>
+            {t("footer.madeBy")} <a href="https://github.com/nalbcosta" target="_blank" rel="noreferrer">Nalbert Costa</a> · © {year} Markly
           </span>
         </div>
 
         <div className={styles.center}>
-          <span className={styles.muted}>
-            {t("footer.madeBy")} <a href="https://github.com/nalbcosta" target="_blank" rel="noreferrer">Nalbert Costa</a>.
-          </span>
+          <span className={styles.navTitle}>{navTitle}</span>
+          <div className={styles.navLinks}>
+            <a href="#how-it-works">{t("header.howItWorks")}</a>
+            <a href="#features">{t("header.features")}</a>
+            <a href="#faq">{t("header.faq")}</a>
+          </div>
         </div>
 
         <div className={styles.right}>
-          <a href="https://github.com/nalbcosta" target="_blank" rel="noreferrer">{t("footer.github")}</a>
-          <Link href="/privacy">{t("footer.privacy")}</Link>
+          <a className={`${styles.actionLink} items-center gap-2`} href="https://github.com/nalbcosta" target="_blank" rel="noreferrer">
+            <FaGithub />
+            {t("footer.github")}
+          </a>
+          <Link className={styles.actionLink} href="/privacy">{t("footer.privacy")}</Link>
         </div>
       </div>
     </footer>
