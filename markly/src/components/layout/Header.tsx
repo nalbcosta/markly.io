@@ -1,8 +1,13 @@
+"use client";
+
 import styles from "./Header.module.css";
 import { MarklyLogo } from "@/assets/MarklyLogo";
 import { ThemeToggle } from "./ThemeToggle";
+import { useLocale } from "@/hooks/useLocale";
 
 export function Header() {
+    const { t } = useLocale();
+
     return (
         <header className={styles.header}>
             <div className={styles.inner}>
@@ -11,15 +16,15 @@ export function Header() {
                 </div>
 
                 <nav className={styles.nav}>
-                    <a href="#como-funciona">Como funciona</a>
-                    <a href="#templates">Templates</a>
-                    <a href="#faq">FAQ</a>
+                    <a href="#how-it-works">{t("header.howItWorks")}</a>
+                    <a href="#templates">{t("header.templates")}</a>
+                    <a href="#faq">{t("header.faq")}</a>
                 </nav>
 
                 <div className={styles.actions}>
                     <ThemeToggle />
-                    <button className={styles.buttonSecondary}>Entrar</button>
-                    <button className={styles.buttonPrimary}>Começar agora</button>
+                    <button className={styles.buttonSecondary}>{t("header.signIn")}</button>
+                    <button className={styles.buttonPrimary}>{t("header.startNow")}</button>
                 </div>
             </div>
         </header>

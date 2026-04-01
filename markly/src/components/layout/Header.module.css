@@ -55,6 +55,33 @@
   justify-self: end;
 }
 
+.localeLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.localeSelect {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.38rem 0.55rem;
+}
+
+.localeSelect:focus {
+  outline: 2px solid color-mix(in srgb, var(--primary) 60%, transparent);
+  outline-offset: 2px;
+}
+
 .buttonPrimary,
 .buttonSecondary {
   font-family: var(--font-body);
@@ -93,5 +120,10 @@
 
   .nav {
     display: none;
+  }
+
+  .localeSelect {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.5rem;
   }
 }

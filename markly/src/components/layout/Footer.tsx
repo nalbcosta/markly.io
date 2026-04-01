@@ -1,7 +1,13 @@
+"use client";
+
 import styles from './Footer.module.css';
 import { MarklyLogo } from "@/assets/MarklyLogo";
+import { useLocale } from "@/hooks/useLocale";
+import Link from "next/link";
 
 export function Footer() {
+  const { t } = useLocale();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
@@ -10,19 +16,19 @@ export function Footer() {
             <MarklyLogo size="sm" />
           </div>
           <span className={styles.muted}>
-            Gerador de README de perfil do GitHub.
+            {t("footer.tagline")}
           </span>
         </div>
 
         <div className={styles.center}>
           <span className={styles.muted}>
-            Feito por <a href="https://github.com/nalbertcosta" target="_blank" rel="noreferrer">Nalbert Costa</a>.
+            {t("footer.madeBy")} <a href="https://github.com/nalbcosta" target="_blank" rel="noreferrer">Nalbert Costa</a>.
           </span>
         </div>
 
         <div className={styles.right}>
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="/privacy">Privacidade</a>
+          <a href="https://github.com/nalbcosta" target="_blank" rel="noreferrer">{t("footer.github")}</a>
+          <Link href="/privacy">{t("footer.privacy")}</Link>
         </div>
       </div>
     </footer>

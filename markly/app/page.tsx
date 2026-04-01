@@ -1,27 +1,30 @@
+"use client";
+
 import { Card } from "@/components/Card/Card";
 import { Button } from "@/components/Button/Button";
 import { FeatureHighlightsSection } from "@/components/sections/FeatureHighlightsSection";
 import { Section } from "@/components/sections/Section";
 import { PageWrapper } from "@/components/layout/PageWrapper";
+import { useLocale } from "@/hooks/useLocale";
 import styles from "./page.module.css";
 
 export default function LandingPage() {
+  const { t } = useLocale();
+
   return (
     <>
       <PageWrapper withHeaderOffset minViewportHeight width="content" verticalPadding="sm">
         {/* Hero Section */}
         <Card size="full" rounded="2xl" align="center" justify="center" className={styles.welcomeCard}>
-          <h1 className="ui-title hero-title">Transforme seu perfil do GitHub em uma vitrine profissional</h1>
-          <p className="ui-text text-secondary">
-            O Markly simplifica a criação de READMEs de perfil com templates inteligentes, edição guiada e pré-visualização em tempo real, tudo para você publicar mais rápido, com qualidade e consistência visual.
-          </p>
+          <h1 className="ui-title hero-title">{t("landing.hero.title")}</h1>
+          <p className="ui-text text-secondary">{t("landing.hero.description")}</p>
 
           <div className={styles.heroActions}>
             <Button route="/editor" variant="primary" size="lg" rounded="lg">
-              Começar agora
+              {t("landing.hero.startNow")}
             </Button>
-            <Button href="#como-funciona" variant="outline" size="lg" rounded="lg">
-              Como funciona
+            <Button href="#how-it-works" variant="outline" size="lg" rounded="lg">
+              {t("landing.hero.howItWorks")}
             </Button>
           </div>
         </Card>
@@ -29,7 +32,7 @@ export default function LandingPage() {
         <FeatureHighlightsSection id="templates" className={styles.sectionCard} />
 
         <Section
-          id="como-funciona"
+          id="how-it-works"
           size="xl"
           rounded="xl"
           variant="secondary"
@@ -39,41 +42,39 @@ export default function LandingPage() {
           justify="start"
         >
           <div className={styles.sectionHeader}>
-            <h2 className="ui-title">Como funciona</h2>
-            <p className="ui-text text-secondary">Um processo simples em tres passos para publicar rapido.</p>
+            <h2 className="ui-title">{t("landing.howItWorks.title")}</h2>
+            <p className="ui-text text-secondary">{t("landing.howItWorks.description")}</p>
           </div>
 
           <div className={styles.stepsGrid}>
             <article className={styles.stepItem}>
               <span className={styles.stepNumber}>1</span>
-              <h3>Escolha um template</h3>
-              <p>Selecione um layout alinhado ao seu objetivo profissional.</p>
+              <h3>{t("landing.howItWorks.step1.title")}</h3>
+              <p>{t("landing.howItWorks.step1.description")}</p>
             </article>
             <article className={styles.stepItem}>
               <span className={styles.stepNumber}>2</span>
-              <h3>Personalize em minutos</h3>
-              <p>Edite textos, secoes e destaques com preview instantaneo.</p>
+              <h3>{t("landing.howItWorks.step2.title")}</h3>
+              <p>{t("landing.howItWorks.step2.description")}</p>
             </article>
             <article className={styles.stepItem}>
               <span className={styles.stepNumber}>3</span>
-              <h3>Exporte e publique</h3>
-              <p>Copie o markdown e atualize seu perfil do GitHub com um clique.</p>
+              <h3>{t("landing.howItWorks.step3.title")}</h3>
+              <p>{t("landing.howItWorks.step3.description")}</p>
             </article>
           </div>
         </Section>
 
         <Section size="xl" rounded="xl" variant="primary" padding="lg" className={styles.ctaSection}>
           <div className={styles.ctaContent}>
-            <h2 className="ui-title">Pronto para elevar o nivel do seu GitHub?</h2>
-            <p className="ui-text">
-              Crie seu README com padrao profissional e apresente seu trabalho com mais clareza.
-            </p>
+            <h2 className="ui-title">{t("landing.cta.title")}</h2>
+            <p className="ui-text">{t("landing.cta.description")}</p>
             <div className={styles.ctaActions}>
               <Button route="/editor" variant="secondary" size="lg" rounded="lg" className={styles.ctaPrimaryButton}>
-                Criar meu README
+                {t("landing.cta.createReadme")}
               </Button>
               <Button href="/templates" variant="ghost" size="lg" rounded="lg" className={styles.ctaGhostButton}>
-                Ver templates
+                {t("landing.cta.viewTemplates")}
               </Button>
             </div>
           </div>
