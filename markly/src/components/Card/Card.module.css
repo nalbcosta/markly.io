@@ -39,6 +39,39 @@
 	margin: var(--card-safe-space);
 }
 
+.paddingNone {
+	padding: 0;
+}
+
+.paddingSm {
+	padding: 0.5rem;
+}
+
+.paddingMd {
+	padding: 1rem;
+}
+
+.paddingLg {
+	padding: 1.5rem;
+}
+
+.paddingXl {
+	padding: 2rem;
+}
+
+.padding2xl {
+	padding: 3rem;
+}
+
+.padding3xl {
+	padding: 4rem;
+}
+
+.padding4xl {
+	padding: 5rem;
+}
+
+
 .roundedXs {
 	border-radius: 0.25rem;
 }

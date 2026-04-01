@@ -40,7 +40,7 @@ export function Footer() {
             <FaGithub />
             {t("footer.github")}
           </a>
-          <Link className={styles.actionLink} href="/privacy">{t("footer.privacy")}</Link>
+          <Link className={styles.actionLink} href={`/${locale}/privacy`}>{t("footer.privacy")}</Link>
         </div>
       </div>
     </footer>
