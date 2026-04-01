@@ -7,9 +7,11 @@ export type TranslationDictionary = {
 	header: {
 		howItWorks: string;
 		templates: string;
+		features: string;
 		faq: string;
 		signIn: string;
 		startNow: string;
+		toggleTheme: string;
 	};
 	footer: {
 		tagline: string;
@@ -79,6 +81,14 @@ export type TranslationDictionary = {
 			};
 		};
 	};
+	faq: {
+		title: string;
+		description: string;
+		items: Array<{
+			question: string;
+			answer: string;
+		}>;
+	};
 };
 
 export const pt: TranslationDictionary = {
@@ -90,9 +100,11 @@ export const pt: TranslationDictionary = {
 	header: {
 		howItWorks: "Como funciona",
 		templates: "Templates",
+		features: "Recursos",
 		faq: "FAQ",
 		signIn: "Entrar",
 		startNow: "Comecar agora",
+		toggleTheme: "Alternar tema",
 	},
 	footer: {
 		tagline: "Gerador de README de perfil do GitHub.",
@@ -110,18 +122,18 @@ export const pt: TranslationDictionary = {
 		},
 		howItWorks: {
 			title: "Como funciona",
-			description: "Um processo simples em tres passos para criar seu README profissional.",
+			description: "Tres passos objetivos para sair do rascunho e publicar um README que transmite valor.",
 			step1: {
-				title: "Escolha um template",
-				description: "Selecione um layout alinhado ao seu objetivo profissional.",
+				title: "Escolha uma base estrategica",
+				description: "Comece com um template pensado para seu momento profissional e economize tempo desde o inicio.",
 			},
 			step2: {
-				title: "Personalize em minutos",
-				description: "Edite textos, secoes e destaques com preview instantaneo.",
+				title: "Personalize com preview ao vivo",
+				description: "Ajuste conteudo, hierarquia e destaques enquanto visualiza o resultado final em tempo real.",
 			},
 			step3: {
-				title: "Exporte e publique",
-				description: "Copie o markdown e atualize seu perfil do GitHub com um clique.",
+				title: "Publique com confianca",
+				description: "Copie o markdown final e atualize seu perfil no GitHub em poucos cliques, sem retrabalho.",
 			},
 		},
 		cta: {
@@ -178,5 +190,36 @@ export const pt: TranslationDictionary = {
 				],
 			},
 		},
+	},
+	faq: {
+		title: "Dúvidas frequentes",
+		description: "Respostas para as perguntas mais comuns sobre o Markly.",
+		items: [
+			{
+				question: "Como faço para começar?",
+				answer:
+					"Basta clicar em 'Começar agora' para acessar o editor. Escolha um template, personalize o conteúdo e veja o resultado em tempo real. Quando estiver pronto, copie o markdown e publique no seu GitHub.",
+			},
+			{
+				question: "Posso exportar meu README?",
+				answer:
+					"Sim! O Markly permite copiar o markdown gerado para levar para qualquer lugar. Você pode usar em seu GitHub, GitLab ou compartilhar com outros.",
+			},
+			{
+				question: "Meus dados ficam salvos?",
+				answer:
+					"O Markly salva automaticamente seu trabalho enquanto você edita para que você não perca nenhuma alteração. Você pode continuar de onde parou.",
+			},
+			{
+				question: "Quais são as limitações?",
+				answer:
+					"Markly foi pensado para criar READMEs de perfil no GitHub. Para documentação de projetos, você pode usar qualquer editor, mas recomendamos usar a base do Markly como ponto de partida.",
+			},
+			{
+				question: "É seguro usar o Markly?",
+				answer:
+					"Sim, a segurança é prioridade. Seus dados são processados de forma segura e privada. Não compartilhamos informações com terceiros.",
+			},
+		],
 	},
 };

@@ -3,6 +3,7 @@
 import { Card } from "@/components/Card/Card";
 import { Button } from "@/components/Button/Button";
 import { FeatureHighlightsSection } from "@/components/sections/FeatureHighlightsSection";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { Section } from "@/components/sections/Section";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { useLocale } from "@/hooks/useLocale";
@@ -10,6 +11,20 @@ import styles from "./page.module.css";
 
 export default function LandingPage() {
   const { t } = useLocale();
+  const howItWorksSteps = [
+    {
+      title: t("landing.howItWorks.step1.title"),
+      description: t("landing.howItWorks.step1.description"),
+    },
+    {
+      title: t("landing.howItWorks.step2.title"),
+      description: t("landing.howItWorks.step2.description"),
+    },
+    {
+      title: t("landing.howItWorks.step3.title"),
+      description: t("landing.howItWorks.step3.description"),
+    },
+  ];
 
   return (
     <>
@@ -29,17 +44,18 @@ export default function LandingPage() {
           </div>
         </Card>
 
-        <FeatureHighlightsSection id="templates" className={styles.sectionCard} />
-
         <Section
           id="how-it-works"
-          size="xl"
-          rounded="xl"
+          size="half"
+          rounded="sm"
           variant="secondary"
-          padding="lg"
+          padding="xl"
+          borderColor="none"
+          background="none"
+          shadow="none"
           className={styles.sectionCard}
           align="start"
-          justify="start"
+          justify="center"
         >
           <div className={styles.sectionHeader}>
             <h2 className="ui-title">{t("landing.howItWorks.title")}</h2>
@@ -47,30 +63,26 @@ export default function LandingPage() {
           </div>
 
           <div className={styles.stepsGrid}>
-            <article className={styles.stepItem}>
-              <span className={styles.stepNumber}>1</span>
-              <h3>{t("landing.howItWorks.step1.title")}</h3>
-              <p>{t("landing.howItWorks.step1.description")}</p>
-            </article>
-            <article className={styles.stepItem}>
-              <span className={styles.stepNumber}>2</span>
-              <h3>{t("landing.howItWorks.step2.title")}</h3>
-              <p>{t("landing.howItWorks.step2.description")}</p>
-            </article>
-            <article className={styles.stepItem}>
-              <span className={styles.stepNumber}>3</span>
-              <h3>{t("landing.howItWorks.step3.title")}</h3>
-              <p>{t("landing.howItWorks.step3.description")}</p>
-            </article>
+            {howItWorksSteps.map((step, index) => (
+              <article key={step.title} className={styles.stepItem}>
+                <span className={styles.stepNumber}>{index + 1}</span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </article>
+            ))}
           </div>
         </Section>
 
-        <Section size="xl" rounded="xl" variant="primary" padding="lg" className={styles.ctaSection}>
+        <FeatureHighlightsSection id="features" className={styles.sectionCard} />
+
+        <FAQSection id="faq" className={styles.sectionCard} />
+
+        <Section size="xl" rounded="2xl" variant="primary" padding="4xl" className={styles.ctaSection}>
           <div className={styles.ctaContent}>
             <h2 className="ui-title">{t("landing.cta.title")}</h2>
             <p className="ui-text">{t("landing.cta.description")}</p>
             <div className={styles.ctaActions}>
-              <Button route="/editor" variant="secondary" size="lg" rounded="lg" className={styles.ctaPrimaryButton}>
+              <Button route="/editor" variant="primary" size="lg" rounded="lg">
                 {t("landing.cta.createReadme")}
               </Button>
               <Button href="/templates" variant="ghost" size="lg" rounded="lg" className={styles.ctaGhostButton}>

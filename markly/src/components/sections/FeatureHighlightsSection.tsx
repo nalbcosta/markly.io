@@ -5,6 +5,7 @@ import { useLocale } from "@/hooks/useLocale";
 import type { IconType } from "react-icons";
 import { FiCheckCircle, FiEdit3, FiEye, FiLayout } from "react-icons/fi";
 import { Section } from "./Section";
+import { cx } from "@/utils/utils";
 import styles from "./FeatureHighlightsSection.module.css";
 
 type FeatureItem = {
@@ -22,10 +23,6 @@ type FeatureHighlightsSectionProps = {
   id?: string;
   className?: string;
 };
-
-function cx(...classes: Array<string | undefined | false>) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export function FeatureHighlightsSection({ id, className }: FeatureHighlightsSectionProps) {
   const { t } = useLocale();
@@ -100,9 +97,9 @@ export function FeatureHighlightsSection({ id, className }: FeatureHighlightsSec
     <Section
       id={id}
       size="xl"
-      rounded="xl"
+      rounded="2xl"
       variant="default"
-      padding="lg"
+      padding="xl"
       align="start"
       justify="center"
       className={cx(styles.section, className)}

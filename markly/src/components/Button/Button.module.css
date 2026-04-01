@@ -54,6 +54,18 @@
 	&:active:not(:disabled):not([aria-disabled="true"]) {
 		transform: scale(0.98);
 	}
+
+	:global([data-theme="dark"]) & {
+		background: var(--primary);
+		border-color: var(--primary);
+		box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+
+		&:hover:not(:disabled):not([aria-disabled="true"]) {
+			background: var(--primary-hover);
+			border-color: var(--primary-hover);
+			box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+		}
+	}
 }
 
 .variantSecondary {
@@ -69,6 +81,18 @@
 
 	&:active:not(:disabled):not([aria-disabled="true"]) {
 		transform: scale(0.98);
+	}
+
+	:global([data-theme="dark"]) & {
+		background: var(--surface-alt);
+		color: var(--text-primary);
+		border-color: var(--border);
+
+		&:hover:not(:disabled):not([aria-disabled="true"]) {
+			background: var(--hover-neutral-bg);
+			border-color: var(--primary);
+			color: var(--primary);
+		}
 	}
 }
 
@@ -86,6 +110,18 @@
 	&:active:not(:disabled):not([aria-disabled="true"]) {
 		transform: scale(0.98);
 	}
+
+	:global([data-theme="dark"]) & {
+		background: transparent;
+		color: var(--primary);
+		border-color: var(--primary);
+
+		&:hover:not(:disabled):not([aria-disabled="true"]) {
+			background: var(--accent-soft);
+			border-color: var(--primary-hover);
+			color: var(--primary-hover);
+		}
+	}
 }
 
 .variantGhost {
@@ -100,6 +136,17 @@
 
 	&:active:not(:disabled):not([aria-disabled="true"]) {
 		transform: scale(0.98);
+	}
+
+	:global([data-theme="dark"]) & {
+		background: transparent;
+		color: var(--text-primary);
+		border-color: transparent;
+
+		&:hover:not(:disabled):not([aria-disabled="true"]) {
+			background: var(--surface-alt);
+			color: var(--primary);
+		}
 	}
 }
 

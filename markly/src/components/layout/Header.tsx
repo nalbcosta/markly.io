@@ -17,7 +17,7 @@ export function Header() {
 
                 <nav className={styles.nav}>
                     <a href="#how-it-works">{t("header.howItWorks")}</a>
-                    <a href="#templates">{t("header.templates")}</a>
+                    <a href="#features">{t("header.features")}</a>
                     <a href="#faq">{t("header.faq")}</a>
                 </nav>
 

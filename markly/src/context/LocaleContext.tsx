@@ -27,6 +27,7 @@ type LocaleContextValue = {
   locale: Locale;
   setLocale: (nextLocale: Locale) => void;
   t: (key: string) => string;
+  tArray: (key: string) => unknown[];
   supportedLocales: readonly Locale[];
 };
 
@@ -133,12 +134,33 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   const t = useCallback(
     (key: string): string => {
       const localeValue = getNestedTranslation(dictionaries[locale], key);
-      if (typeof localeValue === "string") {
+      if (localeValue !== undefined && typeof localeValue === 'string') {
         return localeValue;
       }
 
       const fallbackValue = getNestedTranslation(dictionaries.pt, key);
-      return typeof fallbackValue === "string" ? fallbackValue : key;
+      if (fallbackValue !== undefined && typeof fallbackValue === 'string') {
+        return fallbackValue;
+      }
+
+      return key;
+    },
+    [locale],
+  );
+
+  const tArray = useCallback(
+    (key: string): unknown[] => {
+      const localeValue = getNestedTranslation(dictionaries[locale], key);
+      if (Array.isArray(localeValue)) {
+        return localeValue;
+      }
+
+      const fallbackValue = getNestedTranslation(dictionaries.pt, key);
+      if (Array.isArray(fallbackValue)) {
+        return fallbackValue;
+      }
+
+      return [];
     },
     [locale],
   );
@@ -148,9 +170,10 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       locale,
       setLocale,
       t,
+      tArray,
       supportedLocales: SUPPORTED_LOCALES,
     }),
-    [locale, setLocale, t],
+    [locale, setLocale, t, tArray],
   );
 
   return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;

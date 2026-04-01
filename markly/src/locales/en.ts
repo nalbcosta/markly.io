@@ -9,9 +9,11 @@ export const en: TranslationDictionary = {
 	header: {
 		howItWorks: "How it works",
 		templates: "Templates",
+		features: "Features",
 		faq: "FAQ",
 		signIn: "Sign in",
 		startNow: "Start now",
+		toggleTheme: "Toggle theme",
 	},
 	footer: {
 		tagline: "GitHub profile README generator.",
@@ -29,18 +31,18 @@ export const en: TranslationDictionary = {
 		},
 		howItWorks: {
 			title: "How it works",
-			description: "A simple three-step flow to build your professional README.",
+			description: "Three focused steps to move from draft to a README that communicates real value.",
 			step1: {
-				title: "Choose a template",
-				description: "Pick a layout aligned with your professional goals.",
+				title: "Choose a strategic baseline",
+				description: "Start from a template built for your current professional goals and save time from the first edit.",
 			},
 			step2: {
-				title: "Customize in minutes",
-				description: "Edit texts, sections, and highlights with instant preview.",
+				title: "Customize with live preview",
+				description: "Refine content, hierarchy, and highlights while seeing the final output update in real time.",
 			},
 			step3: {
-				title: "Export and publish",
-				description: "Copy the markdown and update your GitHub profile in one click.",
+				title: "Publish with confidence",
+				description: "Copy the final markdown and update your GitHub profile in a few clicks with minimal rework.",
 			},
 		},
 		cta: {
@@ -97,5 +99,36 @@ export const en: TranslationDictionary = {
 				],
 			},
 		},
+	},
+	faq: {
+		title: "Frequently asked questions",
+		description: "Answers to common questions about Markly.",
+		items: [
+			{
+				question: "How do I get started?",
+				answer:
+					"Just click 'Start now' to access the editor. Choose a template, customize your content, and see the result in real-time. When you're ready, copy the markdown and publish it on your GitHub.",
+			},
+			{
+				question: "Can I export my README?",
+				answer:
+					"Yes! Markly lets you copy the generated markdown to take anywhere. You can use it on GitHub, GitLab, or share it with others.",
+			},
+			{
+				question: "Are my files saved?",
+				answer:
+					"Markly automatically saves your work as you edit so you don't lose any changes. You can continue where you left off.",
+			},
+			{
+				question: "What are the limitations?",
+				answer:
+					"Markly was designed to create GitHub profile READMEs. For project documentation, you can use any editor, but we recommend using Markly's foundation as your starting point.",
+			},
+			{
+				question: "Is it safe to use Markly?",
+				answer:
+					"Yes, security is a priority. Your data is processed securely and privately. We don't share information with third parties.",
+			},
+		],
 	},
 };

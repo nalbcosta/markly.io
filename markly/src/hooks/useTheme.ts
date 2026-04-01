@@ -5,28 +5,31 @@ import { useEffect, useState } from "react";
 type Theme = "light" | "dark";
 
 export function useTheme() {
-    const [theme, setTheme] = useState<Theme>("light");
-    const [mounted, setMounted] = useState(false);
+    const [theme, setTheme] = useState<Theme>(() => {
+        if (typeof window === "undefined") return "light";
 
-    // Inicializa o tema na primeira renderização
-    useEffect(() => {
         const storedTheme = localStorage.getItem("markly-theme") as Theme | null;
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const initialTheme = storedTheme || (prefersDark ? "dark" : "light");
-        
-        setTheme(initialTheme);
-        applyTheme(initialTheme);
-        setMounted(true);
-    }, []);
+        if (storedTheme === "dark" || storedTheme === "light") {
+            return storedTheme;
+        }
+
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    });
 
     const applyTheme = (newTheme: Theme) => {
-        if (newTheme === "dark") {
-            document.documentElement.setAttribute("data-theme", "dark");
-        } else {
-            document.documentElement.removeAttribute("data-theme");
+        if (typeof window !== "undefined") {
+            if (newTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", "dark");
+            } else {
+                document.documentElement.removeAttribute("data-theme");
+            }
+            localStorage.setItem("markly-theme", newTheme);
         }
-        localStorage.setItem("markly-theme", newTheme);
     };
+
+    useEffect(() => {
+        applyTheme(theme);
+    }, [theme]);
 
     const toggleTheme = () => {
         const newTheme = theme === "light" ? "dark" : "light";
@@ -34,5 +37,5 @@ export function useTheme() {
         applyTheme(newTheme);
     };
 
-    return { theme, toggleTheme, mounted };
+    return { theme, toggleTheme };
 }

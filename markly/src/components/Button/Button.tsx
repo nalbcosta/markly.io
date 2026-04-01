@@ -106,26 +106,32 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
         children
     );
 
-    // Router-based navigation
-    if (isRouterProps(props)) {
-        const { route, ...buttonRest } = rest as Omit<RouterButtonProps, keyof BaseButtonProps>;
+    const isRouter = isRouterProps(props);
+    const route = isRouter ? (props as RouterButtonProps).route : undefined;
 
-        const handleClick = useCallback(
-            (e: React.MouseEvent<HTMLButtonElement>) => {
-                if (!disabled && !isLoading) {
-                    router.push(route);
-                }
-                buttonRest.onClick?.(e);
-            },
-            [route, router, disabled, isLoading, buttonRest],
-        );
+    const handleRouterClick = useCallback(
+        (e: React.MouseEvent<HTMLButtonElement>) => {
+            if (route && !disabled && !isLoading) {
+                router.push(route);
+            }
+
+            const clickHandler = (props as RouterButtonProps).onClick || (props as NativeButtonProps).onClick;
+            clickHandler?.(e);
+        },
+        [route, router, disabled, isLoading, props],
+    );
+
+    // Router-based navigation
+    if (isRouter) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { route: _, ...buttonRest } = props as RouterButtonProps;
 
         return (
             <button
                 ref={ref as React.Ref<HTMLButtonElement>}
                 className={baseClassNames}
                 disabled={disabled || isLoading}
-                onClick={handleClick}
+                onClick={handleRouterClick}
                 {...(buttonRest as ButtonHTMLAttributes<HTMLButtonElement>)}
             >
                 {content}

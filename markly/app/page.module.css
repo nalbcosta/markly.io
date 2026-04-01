@@ -80,7 +80,6 @@
 
 .sectionCard {
   width: 100%;
-  margin-top: 1.25rem;
 }
 
 .sectionHeader {
@@ -133,16 +132,19 @@
 }
 
 .stepItem {
-  padding: 1rem;
+  padding: 1.1rem;
   border-radius: 0.9rem;
   background: var(--surface);
   border: 1px solid var(--border);
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .stepNumber {
   display: inline-flex;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 9999px;
   align-items: center;
   justify-content: center;
@@ -155,7 +157,8 @@
 
 .stepItem h3 {
   margin: 0 0 0.45rem;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
   color: var(--text-primary);
 }
 
@@ -201,16 +204,16 @@
   margin-top: 0.35rem;
 }
 
-.ctaPrimaryButton.ctaPrimaryButton {
-  background: var(--cta-button-main-bg);
-  color: var(--cta-button-main-text);
-  border-color: transparent;
+.ctaPrimaryButton {
+  background: var(--cta-button-main-bg) !important;
+  color: var(--cta-button-main-text) !important;
+  border-color: transparent !important;
 }
 
-.ctaPrimaryButton.ctaPrimaryButton:hover {
-  background: var(--cta-button-main-hover-bg);
-  color: var(--cta-button-main-text);
-  border-color: transparent;
+.ctaPrimaryButton:hover {
+  background: var(--cta-button-main-hover-bg) !important;
+  color: var(--cta-button-main-text) !important;
+  border-color: transparent !important;
 }
 
 .ctaGhostButton.ctaGhostButton {
