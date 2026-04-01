@@ -4,14 +4,16 @@ import styles from "./Header.module.css";
 import { MarklyLogo } from "@/assets/MarklyLogo";
 import { ThemeToggle } from "./ThemeToggle";
 import { useLocale } from "@/hooks/useLocale";
+import { useRouter } from "next/navigation";
 
 export function Header() {
     const { t } = useLocale();
+    const router = useRouter();
 
     return (
         <header className={styles.header}>
             <div className={styles.inner}>
-                <div className={styles.logoArea}>
+                <div className={`${styles.logoArea} cursor-pointer`} onClick={() => router.push("/")}>
                     <MarklyLogo size="sm" />
                 </div>
 
