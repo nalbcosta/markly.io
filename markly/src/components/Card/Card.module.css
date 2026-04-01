@@ -1,0 +1,111 @@
+.base {
+	width: 100%;
+	padding: 1.5rem;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	color: var(--text-primary);
+	box-shadow: 0 8px 30px -24px rgba(15, 23, 42, 0.45);
+	display: flex;
+	flex-direction: column;
+}
+
+.sizeSm {
+	max-width: 24rem;
+}
+
+.sizeMd {
+	max-width: 40rem;
+}
+
+.sizeLg {
+	max-width: 64rem;
+}
+
+.sizeXl {
+    max-width: 80rem;
+}
+
+.sizeHalfFull {
+    max-width: none;
+    width: calc(50vw - (var(--card-safe-space) * 2));
+    min-height: calc(50dvh - (var(--card-safe-space) * 2));
+    margin: var(--card-safe-space);
+}
+
+.sizeFull {
+	max-width: none;
+	width: calc(100vw - (var(--card-safe-space) * 2));
+	min-height: calc(89dvh - (var(--card-safe-space) * 2));
+	margin: var(--card-safe-space);
+}
+
+.roundedXs {
+	border-radius: 0.25rem;
+}
+
+.roundedSm {
+	border-radius: 0.5rem;
+}
+
+.roundedMd {
+	border-radius: 0.75rem;
+}
+
+.roundedLg {
+	border-radius: 1rem;
+}
+
+.roundedXl {
+	border-radius: 1.5rem;
+}
+
+.rounded2xl {
+    border-radius: 2rem;
+}
+
+.rounded3xl {
+    border-radius: 3rem;
+}
+
+.rounded4xl {
+    border-radius: 4rem;
+}
+
+.roundedFull {
+    border-radius: 9999px;
+}
+
+.alignStart {
+    align-items: flex-start;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+.alignEnd {
+    align-items: flex-end;
+}
+
+.justifyStart {
+    justify-content: flex-start;
+}
+
+.justifyCenter {
+    justify-content: center;
+}
+
+.justifyEnd {
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+	.base {
+		padding: 1.25rem;
+	}
+
+	.sizeFull {
+		width: calc(100% - (var(--card-safe-space) * 2));
+		min-height: calc(100dvh - (var(--card-safe-space) * 2));
+	}
+}

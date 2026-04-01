@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Noto+Sans+Mono:wght@400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
 @import "./variables.css";
-@import "./themes.css";
+@import "./theme.css";
 @import "./utils.css";
 
 * {
     box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 html, body, #__next {

@@ -1,0 +1,184 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  background:
+    radial-gradient(110% 120% at 8% 120%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 58%),
+    radial-gradient(120% 120% at 100% 120%, color-mix(in srgb, var(--primary) 14%, transparent) 0%, transparent 62%),
+    color-mix(in srgb, var(--bg-base) 90%, transparent);
+  backdrop-filter: blur(16px);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--accent) 55%, var(--border)) 22%,
+    color-mix(in srgb, var(--primary) 60%, var(--border)) 50%,
+    color-mix(in srgb, var(--accent) 55%, var(--border)) 78%,
+    transparent
+  );
+}
+
+.inner {
+  margin: 0 auto;
+  padding: 1.1rem 0 1.35rem;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr auto;
+  align-items: end;
+  gap: 1.25rem;
+  width: min(var(--content-max), calc(100% - (var(--layout-gutter) * 2)));
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.brandBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.65rem;
+  padding: 0 0.65rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: color-mix(in srgb, var(--surface-alt) 70%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--primary) 75%, var(--text-primary));
+}
+
+.tagline,
+.meta {
+  font-family: var(--font-body);
+  font-size: 0.81rem;
+  color: var(--text-secondary);
+}
+
+.tagline {
+  max-width: 50ch;
+}
+
+.meta {
+  font-size: 0.76rem;
+  color: color-mix(in srgb, var(--text-secondary) 88%, transparent);
+}
+
+.meta a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.meta a:hover {
+  color: var(--primary-hover);
+}
+
+.center {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.navTitle {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--text-secondary) 82%, transparent);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.navLinks a {
+  border: 1px solid color-mix(in srgb, var(--border) 86%, var(--accent));
+  border-radius: 999px;
+  height: 1.85rem;
+  padding: 0 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--text-secondary) 85%, var(--text-primary));
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.navLinks a:hover {
+  border-color: color-mix(in srgb, var(--accent) 52%, var(--border));
+  color: color-mix(in srgb, var(--primary) 72%, var(--text-primary));
+  background: color-mix(in srgb, var(--accent-soft) 55%, transparent);
+}
+
+.right {
+  display: flex;
+  gap: 0.55rem;
+  justify-self: end;
+  align-self: center;
+}
+
+.actionLink {
+  text-decoration: none;
+  height: 2rem;
+  padding: 0 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border));
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  color: color-mix(in srgb, var(--text-secondary) 85%, var(--text-primary));
+  font-size: 0.78rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.actionLink:hover {
+  color: var(--primary-hover);
+  border-color: color-mix(in srgb, var(--primary) 55%, var(--border));
+  background: color-mix(in srgb, var(--accent-soft) 65%, transparent);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    width: calc(100% - (var(--layout-gutter-mobile) * 2));
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .center {
+    justify-self: auto;
+  }
+
+  .right {
+    justify-self: auto;
+    flex-wrap: wrap;
+  }
+
+  .tagline {
+    max-width: 100%;
+  }
+}
