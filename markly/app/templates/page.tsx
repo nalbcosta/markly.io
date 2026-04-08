@@ -1,102 +1,37 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { Button } from "@/components/Button/Button";
+import { useTemplatesMode } from "@/hooks/useTemplatesMode";
+import { useTemplateList } from "@/hooks/useTemplateList";
+import { paginate } from "@/utils/pagination";
 import { Card } from "@/components/Card/Card";
+import { Input } from "@/components/Input/Input";
 import { TemplatePreviewThumbnail } from "@/components/forms/TemplatePreviewThumbnail";
+import { Section } from "@/components/sections/Section";
 import { PageWrapper } from "@/components/layout/PageWrapper";
-import { TEMPLATE_BLUEPRINTS, type TemplateId } from "@/data/editorTemplates";
+import { Pagination } from "@/components/layout/Pagination";
+import { type TemplateId } from "@/data/editorTemplates";
 import { useLocale } from "@/hooks/useLocale";
-import { getTemplateOptions } from "@/services/templateService";
 import styles from "./page.module.css";
-
-type TemplatesPageMode = "browse" | "start";
-
-type TemplateCard = {
-  id: TemplateId;
-  name: string;
-  description: string;
-  fieldCount: number;
-};
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const PAGE_SIZE = 6;
 
-function parseMode(value: string | null): TemplatesPageMode {
-  return value === "start" ? "start" : "browse";
-}
-
-type SearchParamsLike = {
-  toString: () => string;
-};
-
-function createModeUrl(pathname: string, searchParams: SearchParamsLike, nextMode: TemplatesPageMode): string {
-  const nextParams = new URLSearchParams(searchParams.toString());
-
-  if (nextMode === "start") {
-    nextParams.set("mode", "start");
-  } else {
-    nextParams.delete("mode");
-  }
-
-  const query = nextParams.toString();
-  return query.length > 0 ? `${pathname}?${query}` : pathname;
-}
-
 export default function TemplatesPage() {
   const { t, locale } = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { mode, setMode } = useTemplatesMode();
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const mode = parseMode(searchParams.get("mode"));
-  const templateOptions = useMemo(() => getTemplateOptions(t), [t]);
-
-  const templates = useMemo<TemplateCard[]>(() => {
-    return templateOptions.map((option) => {
-      const blueprint = TEMPLATE_BLUEPRINTS.find((item) => item.id === option.id);
-      return {
-        id: option.id,
-        name: option.name,
-        description: option.description,
-        fieldCount: blueprint?.fieldBlueprints.length ?? 0,
-      };
-    });
-  }, [templateOptions]);
-
-  const normalizedSearch = searchTerm.trim().toLocaleLowerCase();
-
-  const filteredTemplates = useMemo(() => {
-    if (normalizedSearch.length === 0) {
-      return templates;
-    }
-
-    return templates.filter((template) => {
-      const searchable = `${template.name} ${template.description}`.toLocaleLowerCase();
-      return searchable.includes(normalizedSearch);
-    });
-  }, [normalizedSearch, templates]);
-
-  const totalPages = Math.max(1, Math.ceil(filteredTemplates.length / PAGE_SIZE));
-  const safeCurrentPage = Math.min(currentPage, totalPages);
-  const pageStart = (safeCurrentPage - 1) * PAGE_SIZE;
-
-  const pagedTemplates = useMemo(() => {
-    return filteredTemplates.slice(pageStart, pageStart + PAGE_SIZE);
-  }, [filteredTemplates, pageStart]);
+  const filteredTemplates = useTemplateList(t, searchTerm);
+  const { items: pagedTemplates, totalPages, safeCurrentPage } = paginate(filteredTemplates, currentPage, PAGE_SIZE);
 
   const editorRoute = `/${locale}/editor`;
 
-  const handleModeChange = (nextMode: TemplatesPageMode) => {
-    if (nextMode === mode) {
-      return;
-    }
-
+  const handleModeChange = (nextMode: typeof mode) => {
     setCurrentPage(1);
-    const nextUrl = createModeUrl(pathname, searchParams, nextMode);
-    router.replace(nextUrl);
+    setMode(nextMode);
   };
 
   const buildTemplateRoute = (templateId: TemplateId) => {
@@ -115,77 +50,111 @@ export default function TemplatesPage() {
       verticalPadding="sm"
       withHeaderOffset
       minViewportHeight
-      className={styles.page}
     >
-      <section className={styles.hero}>
-        <h1 className="ui-title">{browseTitle}</h1>
-        <p className="ui-text">{browseDescription}</p>
+      <Section 
+        variant="primary"
+        rounded="2xl"
+        padding="lg"
+        size="xl"
+        align="start"
+        justify="start"
+        className={styles.hero}
+      >
+        <div className={styles.heroContent}>
+          <h1 className="ui-title">{browseTitle}</h1>
+          <p className="ui-text">{browseDescription}</p>
+        </div>
 
         <div className={styles.modeSwitch} role="tablist" aria-label={t("templatesPage.modeAriaLabel")}>
-          <button
+          <Button
             type="button"
             role="tab"
             aria-selected={mode === "browse"}
-            className={`${styles.modeButton} ${mode === "browse" ? styles.modeButtonActive : ""}`}
+            variant={mode === "browse" ? "primary" : "ghost"}
+            size="md"
+            rounded="lg"
+            className={styles.modeButton}
             onClick={() => handleModeChange("browse")}
           >
             {t("templatesPage.modeBrowse")}
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
             role="tab"
             aria-selected={mode === "start"}
-            className={`${styles.modeButton} ${mode === "start" ? styles.modeButtonActive : ""}`}
+            variant={mode === "start" ? "primary" : "ghost"}
+            size="md"
+            rounded="lg"
+            className={styles.modeButton}
             onClick={() => handleModeChange("start")}
           >
             {t("templatesPage.modeStart")}
-          </button>
+          </Button>
         </div>
-      </section>
+      </Section>
 
-      <section className={styles.toolbar}>
-        <label className={styles.searchField}>
-          <span>{t("templatesPage.searchLabel")}</span>
-          <input
-            type="search"
-            value={searchTerm}
-            onChange={(event) => {
-              setSearchTerm(event.target.value);
-              setCurrentPage(1);
-            }}
-            placeholder={t("templatesPage.searchPlaceholder")}
-          />
-        </label>
-
-        <p className={styles.resultsInfo}>
-          {filteredTemplates.length} {t("templatesPage.resultsCountLabel")}
+      <Section
+        size="xl"
+        variant="accent"
+        padding="sm"
+        rounded="2xl"
+        align="start"
+        justify="start"
+        borderless="none"
+        background="none"
+        shadow="none"
+        className={styles.toolbar}
+      >
+        <Input
+          type="search"
+          label={t("templatesPage.searchLabel")}
+          value={searchTerm}
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+            setCurrentPage(1);
+          }}
+          placeholder={t("templatesPage.searchPlaceholder")}
+          rounded="lg"
+          className={styles.searchField}
+        />
+        <p className={styles.resultsInfo} title={t("templatesPage.resultsCountLabel")}>
+          {filteredTemplates.length}
         </p>
-      </section>
+      </Section>
 
       {mode === "start" ? (
-        <Card size="xl" rounded="xl" align="start" justify="start" className={styles.zeroCard}>
-          <h2>{t("templatesPage.blankTitle")}</h2>
-          <p>{t("templatesPage.blankDescription")}</p>
-          <Button route={`${editorRoute}?blank=1`} variant="secondary" rounded="md">
+        <Card size="xl" rounded="2xl" align="start" justify="start" padding="lg" className={styles.zeroCard}>
+          <div className="flex-col">
+            <h2>{t("templatesPage.blankTitle")}</h2>
+            <p>{t("templatesPage.blankDescription")}</p>
+          </div>
+          <Button route={`${editorRoute}?blank=1`} size="md" variant="primary" rounded="lg">
             {t("templatesPage.blankAction")}
           </Button>
         </Card>
       ) : null}
 
       {pagedTemplates.length === 0 ? (
-        <Card size="xl" rounded="xl" align="start" justify="start" className={styles.emptyState}>
+        <Card size="xl" rounded="2xl" align="start" justify="start" padding="lg" className={styles.emptyState}>
           <h2>{t("templatesPage.emptyTitle")}</h2>
           <p>{t("templatesPage.emptyDescription")}</p>
         </Card>
       ) : (
-        <section className={styles.grid}>
+        <Section 
+          borderless="none"
+          shadow="none"
+          background="none"
+          size="xl"
+          padding="none"
+          className={styles.grid}
+        >
           {pagedTemplates.map((template) => (
             <Card
               key={template.id}
               size="xl"
-              rounded="xl"
-              align="start"
+              rounded="2xl"
               justify="start"
+              align="start"
               className={styles.templateCard}
             >
               <TemplatePreviewThumbnail
@@ -210,32 +179,21 @@ export default function TemplatesPage() {
               </Button>
             </Card>
           ))}
-        </section>
+        </Section>
       )}
 
-      <section className={styles.pagination} aria-label={t("templatesPage.paginationAriaLabel")}>
-        <Button
-          type="button"
-          variant="ghost"
-          rounded="md"
-          onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
-          disabled={safeCurrentPage === 1}
-        >
-          {t("templatesPage.previousPage")}
-        </Button>
-
-        <span>{t("templatesPage.pageLabel")} {safeCurrentPage} / {totalPages}</span>
-
-        <Button
-          type="button"
-          variant="ghost"
-          rounded="md"
-          onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
-          disabled={safeCurrentPage === totalPages}
-        >
-          {t("templatesPage.nextPage")}
-        </Button>
-      </section>
+      <Pagination
+        currentPage={safeCurrentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+        iconButtons
+        prevLabel = <MdChevronLeft/>
+        nextLabel = <MdChevronRight/>
+        align="center"
+        className={styles.pagination}
+        ariaLabel={t("templatesPage.paginationAriaLabel")}
+        pageInfo={(current, total) => `${current} / ${total}`}
+      />
     </PageWrapper>
   );
 }

@@ -1,0 +1,94 @@
+.base {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Size Variants */
+.sizeSm {
+    font-size: 0.85rem;
+}
+
+.sizeMd {
+    font-size: 1rem;
+}
+
+.sizeLg {
+    font-size: 1.1rem;
+}
+
+/* Alignment Variants */
+.alignStart {
+    justify-content: flex-start;
+}
+
+.alignCenter {
+    justify-content: center;
+}
+
+.alignEnd {
+    justify-content: flex-end;
+}
+
+/* Gap Variants */
+.gapSm {
+    gap: 0.4rem;
+}
+
+.gapMd {
+    gap: 0.85rem;
+}
+
+.gapLg {
+    gap: 1.5rem;
+}
+
+/* Style Variants */
+.variantMinimal .pageInfo {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+.variantBordered {
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.4rem;
+    background: color-mix(in srgb, var(--surface-alt) 60%, var(--surface));
+}
+
+/* Icon Button — square aspect ratio for icon-only labels */
+.iconButton {
+    aspect-ratio: 1;
+    padding-inline: 0 !important;
+    display: inline-flex;
+    width: 2rem;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Page Info */
+.pageInfo {
+    color: var(--text-secondary);
+    font-weight: 600;
+    white-space: nowrap;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .gapMd {
+        gap: 0.5rem;
+    }
+
+    .gapLg {
+        gap: 0.85rem;
+    }
+
+    .sizeMd {
+        font-size: 0.9rem;
+    }
+
+    .sizeLg {
+        font-size: 1rem;
+    }
+}

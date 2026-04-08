@@ -224,7 +224,7 @@ export const en: TranslationDictionary = {
 		modeStart: "Start now",
 		searchLabel: "Search templates",
 		searchPlaceholder: "Search by name or description",
-		resultsCountLabel: "templates found",
+		resultsCountLabel: "Templates found",
 		fieldsCountLabel: "fields",
 		emptyTitle: "No templates found",
 		emptyDescription: "Try another search term to find a matching template.",

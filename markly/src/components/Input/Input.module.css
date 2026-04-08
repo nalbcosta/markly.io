@@ -1,0 +1,211 @@
+.field {
+	display: grid;
+	gap: 0.35rem;
+}
+
+.label {
+	font-weight: 600;
+	font-family: var(--font-body);
+	font-size: 0.875rem;
+	color: var(--text-primary);
+}
+
+/* ── Shared visual properties ── */
+.input,
+.inputWrapper {
+	width: 100%;
+	border: 1px solid var(--border);
+	background: var(--surface);
+	color: var(--text-primary);
+	font: inherit;
+	font-family: var(--font-body);
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+	&::placeholder {
+		color: var(--text-secondary);
+		opacity: 0.75;
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+		background: var(--surface-alt);
+	}
+}
+
+/* ── Standalone input ── */
+.input {
+	display: block;
+
+	&:focus {
+		outline: 2px solid color-mix(in srgb, var(--primary) 40%, transparent);
+		outline-offset: 2px;
+		border-color: var(--primary);
+	}
+}
+
+/* ── Wrapper (prefix/suffix) ── */
+.inputWrapper {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+
+	&:focus-within {
+		outline: 2px solid color-mix(in srgb, var(--primary) 40%, transparent);
+		outline-offset: 2px;
+		border-color: var(--primary);
+	}
+}
+
+.inputBare {
+	flex: 1;
+	min-width: 0;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--text-primary);
+	font: inherit;
+
+	&::placeholder {
+		color: var(--text-secondary);
+		opacity: 0.75;
+	}
+}
+
+.affix {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	color: var(--text-secondary);
+	font-size: 0.9em;
+	pointer-events: none;
+	user-select: none;
+}
+
+/* ── Helper text ── */
+.helper {
+	font-size: 0.8rem;
+	font-family: var(--font-body);
+}
+
+.helperDefault {
+	color: var(--text-secondary);
+}
+
+.helperError {
+	color: var(--error-text);
+}
+
+.helperSuccess {
+	color: var(--success-text, #15803d);
+
+	:global([data-theme="dark"]) & {
+		color: var(--success-text, #4ade80);
+	}
+}
+
+.helperWarn {
+	color: var(--warn-text);
+}
+
+/* ── Size Variants ── */
+.sizeSm {
+	height: 2rem;
+	padding: 0.35rem 0.6rem;
+	font-size: 0.875rem;
+}
+
+.sizeMd {
+	height: 2.65rem;
+	padding: 0.55rem 0.75rem;
+	font-size: 1rem;
+}
+
+.sizeLg {
+	height: 3rem;
+	padding: 0.75rem 1rem;
+	font-size: 1.125rem;
+}
+
+/* ── Rounded Variants ── */
+.roundedXs {
+	border-radius: 0.25rem;
+}
+
+.roundedSm {
+	border-radius: 0.5rem;
+}
+
+.roundedMd {
+	border-radius: 0.8rem;
+}
+
+.roundedLg {
+	border-radius: 1rem;
+}
+
+.roundedXl {
+	border-radius: 1.5rem;
+}
+
+/* ── Color Variants ── */
+.variantDefault {
+	border-color: var(--border);
+}
+
+.variantError {
+	border-color: var(--error-border);
+	background: color-mix(in srgb, var(--error-background) 30%, var(--surface));
+
+	&:focus,
+	&:focus-within {
+		outline-color: color-mix(in srgb, var(--error-text) 40%, transparent);
+		border-color: var(--error-border);
+	}
+}
+
+.variantSuccess {
+	border-color: #86efac;
+	background: color-mix(in srgb, #f0fdf4 30%, var(--surface));
+
+	&:focus,
+	&:focus-within {
+		outline-color: color-mix(in srgb, #15803d 35%, transparent);
+		border-color: #4ade80;
+	}
+
+	:global([data-theme="dark"]) & {
+		border-color: #166534;
+		background: color-mix(in srgb, #052e16 30%, var(--surface));
+
+		&:focus,
+		&:focus-within {
+			border-color: #4ade80;
+		}
+	}
+}
+
+.variantWarn {
+	border-color: var(--warn-border);
+	background: color-mix(in srgb, var(--warn-background) 30%, var(--surface));
+
+	&:focus,
+	&:focus-within {
+		outline-color: color-mix(in srgb, var(--warn-text) 40%, transparent);
+		border-color: var(--warn-border);
+	}
+}
+
+/* ── Dark mode (default/error/warn handled by variables) ── */
+:global([data-theme="dark"]) .input,
+:global([data-theme="dark"]) .inputWrapper {
+	background: var(--surface);
+	border-color: var(--border);
+	color: var(--text-primary);
+
+	&:focus,
+	&:focus-within {
+		border-color: var(--primary);
+		outline-color: color-mix(in srgb, var(--primary) 35%, transparent);
+	}
+}

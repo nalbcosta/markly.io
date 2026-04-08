@@ -43,20 +43,24 @@
 	padding: 0;
 }
 
-.paddingSm {
-	padding: 0.5rem;
+.paddingXs {
+	padding: 0.75rem;
 }
 
-.paddingMd {
+.paddingSm {
 	padding: 1rem;
 }
 
-.paddingLg {
+.paddingMd {
 	padding: 1.5rem;
 }
 
-.paddingXl {
+.paddingLg {
 	padding: 2rem;
+}
+
+.paddingXl {
+	padding: 2.5rem;
 }
 
 .padding2xl {
@@ -70,6 +74,7 @@
 .padding4xl {
 	padding: 5rem;
 }
+
 
 
 .roundedXs {

@@ -19,7 +19,7 @@
     --hero-glow-b: rgba(99, 102, 241, 0.11);
     --hero-border: rgba(129, 140, 248, 0.28);
     --hero-text-primary: var(--text-primary);
-    --hero-text-secondary: color-mix(in srgb, var(--text-secondary) 92%, #ffffff);
+    --hero-text-secondary: var(--surface);
     --hero-badge-bg: color-mix(in srgb, var(--accent-soft) 75%, transparent);
     --hero-badge-border: color-mix(in srgb, var(--accent) 40%, var(--border));
     --hero-badge-text: var(--text-secondary);

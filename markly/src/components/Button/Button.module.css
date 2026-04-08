@@ -42,12 +42,13 @@
 /* Color/Style Variants */
 .variantPrimary {
 	background: var(--primary);
-	color: #ffffff;
+	color: var(--surface);
 	border-color: var(--primary);
 
 	&:hover:not(:disabled):not([aria-disabled="true"]) {
 		background: var(--primary-hover);
 		border-color: var(--primary-hover);
+		color: var(--surface-alt);
 		box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 	}
 
@@ -136,6 +137,7 @@
 
 	&:active:not(:disabled):not([aria-disabled="true"]) {
 		transform: scale(0.98);
+		background: var(--surface-alt);
 	}
 
 	:global([data-theme="dark"]) & {
@@ -146,6 +148,11 @@
 		&:hover:not(:disabled):not([aria-disabled="true"]) {
 			background: var(--surface-alt);
 			color: var(--primary);
+		}
+
+		&:active:not(:disabled):not([aria-disabled="true"]) {
+			transform: scale(0.98);
+			background: var(--surface-alt);
 		}
 	}
 }
