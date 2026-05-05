@@ -147,6 +147,10 @@ export const en: TranslationDictionary = {
 		fieldTypeLabel: "Field type",
 		fieldTypeText: "Single line",
 		fieldTypeTextarea: "Long text",
+		fieldTypeMarkdown: "Raw markdown",
+		fieldTypeImageUrl: "Image / banner URL",
+		fieldTypeBadgeList: "Tech badges",
+		fieldTypeStatWidget: "GitHub stats widget",
 		addFieldAction: "Add field",
 		removeFieldAction: "Remove",
 		emptyFields: "No fields in this form yet. Add a field to continue.",
@@ -156,9 +160,12 @@ export const en: TranslationDictionary = {
 		previewMarkdown: "Markdown",
 		copyMarkdown: "Copy markdown",
 		copiedMarkdown: "Copied",
+		downloadMarkdown: "Download .md",
 		emptyPreview: "Fill out the form to generate a preview.",
 		customFieldPlaceholder: "Describe the content for this field",
 		markdownFallbackTitle: "My README",
+		insertSectionTitle: "Insert section snippet",
+		insertSectionDescription: "Add a ready-made block to your README",
 		templates: {
 			profile: {
 				name: "Professional profile",
@@ -171,6 +178,54 @@ export const en: TranslationDictionary = {
 			freelancer: {
 				name: "Freelancer",
 				description: "Built to showcase experience, services, and contact touchpoints.",
+			},
+			student: {
+				name: "Student",
+				description: "For CS students and early-career devs focused on learning and projects.",
+			},
+			researcher: {
+				name: "Researcher",
+				description: "For academics and researchers with publications and scientific experience.",
+			},
+			devops: {
+				name: "DevOps / SRE",
+				description: "For infrastructure engineers focused on automation, cloud, and observability.",
+			},
+			designer: {
+				name: "Design engineer",
+				description: "For designers who code, with focus on UI/UX, portfolio, and design systems.",
+			},
+			"data-scientist": {
+				name: "Data scientist",
+				description: "For data and ML professionals focused on analytics stack and data projects.",
+			},
+			"game-dev": {
+				name: "Game developer",
+				description: "For game developers focused on engines, tools, and published titles.",
+			},
+			"tech-lead": {
+				name: "Tech lead",
+				description: "For technical leaders and engineering managers focused on experience and leadership.",
+			},
+			fullstack: {
+				name: "Full-stack developer",
+				description: "Complete template for devs working across frontend and backend with a broad stack.",
+			},
+			backend: {
+				name: "Backend engineer",
+				description: "For backend specialists focused on APIs, architecture, and infrastructure.",
+			},
+			frontend: {
+				name: "Frontend developer",
+				description: "For frontend devs focused on UI, accessibility, and interface portfolio.",
+			},
+			"open-source": {
+				name: "Open-source contributor",
+				description: "For active open-source contributors and library maintainers.",
+			},
+			minimal: {
+				name: "Minimal",
+				description: "A lean, straight-to-the-point profile with just the essentials.",
 			},
 		},
 		fields: {

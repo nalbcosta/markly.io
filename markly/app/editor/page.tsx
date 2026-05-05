@@ -9,6 +9,7 @@ import { MarkdownPreviewPanel, type PreviewMode } from "@/components/forms/Markd
 import { TemplateSelector } from "@/components/forms/TemplateSelector";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { TEMPLATE_BLUEPRINTS, type EditorFieldType, type TemplateId } from "@/data/editorTemplates";
+import sections from "@/data/sections.json";
 import { useLocale } from "@/hooks/useLocale";
 import {
   buildMarkdown,
@@ -143,6 +144,43 @@ export default function MarkdownEditorPage() {
     setHasCopied(true);
   };
 
+  const handleDownloadMarkdown = () => {
+    const blob = new Blob([markdown], { type: "text/markdown" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "README.md";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleInsertSnippet = (snippet: typeof sections[0]) => {
+    customFieldCounter.current += 1;
+    setFields((current) => [
+      ...current,
+      {
+        id: `snippet-${customFieldCounter.current}`,
+        definitionId: null,
+        type: "markdown",
+        label: snippet.label,
+        placeholder: "",
+        value: snippet.markdown,
+        isCustom: true,
+      },
+    ]);
+  };
+
+  const snippetsByCategory = useMemo(() => {
+    return sections.reduce(
+      (acc, snippet) => {
+        if (!acc[snippet.category]) acc[snippet.category] = [];
+        acc[snippet.category].push(snippet);
+        return acc;
+      },
+      {} as Record<string, (typeof sections)[number][]>,
+    );
+  }, []);
+
   return (
     <PageWrapper
       as="main"
@@ -197,6 +235,10 @@ export default function MarkdownEditorPage() {
                 >
                   <option value="text">{t("editor.fieldTypeText")}</option>
                   <option value="textarea">{t("editor.fieldTypeTextarea")}</option>
+                  <option value="markdown">{t("editor.fieldTypeMarkdown")}</option>
+                  <option value="image-url">{t("editor.fieldTypeImageUrl")}</option>
+                  <option value="badge-list">{t("editor.fieldTypeBadgeList")}</option>
+                  <option value="stat-widget">{t("editor.fieldTypeStatWidget")}</option>
                 </select>
               </div>
 
@@ -236,6 +278,34 @@ export default function MarkdownEditorPage() {
               </div>
             )}
           </section>
+
+          <section className={styles.snippetCard}>
+            <header className={styles.sectionHeader}>
+              <h2>{t("editor.insertSectionTitle")}</h2>
+              <p>{t("editor.insertSectionDescription")}</p>
+            </header>
+
+            <div className={styles.snippetGrid}>
+              {Object.entries(snippetsByCategory).map(([category, snippets]) => (
+                <div key={category} className={styles.snippetCategory}>
+                  <h3 className={styles.snippetCategoryTitle}>{category}</h3>
+                  <div className={styles.snippetButtonGroup}>
+                    {snippets.map((snippet) => (
+                      <button
+                        key={snippet.id}
+                        type="button"
+                        className={styles.snippetButton}
+                        onClick={() => handleInsertSnippet(snippet)}
+                        title={snippet.description}
+                      >
+                        {snippet.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         </Card>
 
         <Card size="xl" rounded="xl" align="start" justify="start" className={styles.previewCard}>
@@ -246,6 +316,7 @@ export default function MarkdownEditorPage() {
             markdownLabel={t("editor.previewMarkdown")}
             copyLabel={t("editor.copyMarkdown")}
             copiedLabel={t("editor.copiedMarkdown")}
+            downloadLabel={t("editor.downloadMarkdown")}
             emptyStateLabel={t("editor.emptyPreview")}
             previewMode={previewMode}
             markdown={markdown}
@@ -253,6 +324,7 @@ export default function MarkdownEditorPage() {
             hasCopied={hasCopied}
             onPreviewModeChange={setPreviewMode}
             onCopy={handleCopyMarkdown}
+            onDownload={handleDownloadMarkdown}
           />
         </Card>
       </section>

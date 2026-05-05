@@ -10,6 +10,7 @@ type MarkdownPreviewPanelProps = {
   markdownLabel: string;
   copyLabel: string;
   copiedLabel: string;
+  downloadLabel?: string;
   emptyStateLabel: string;
   previewMode: PreviewMode;
   markdown: string;
@@ -17,6 +18,7 @@ type MarkdownPreviewPanelProps = {
   hasCopied: boolean;
   onPreviewModeChange: (mode: PreviewMode) => void;
   onCopy: () => void;
+  onDownload?: () => void;
 };
 
 export function MarkdownPreviewPanel({
@@ -26,6 +28,7 @@ export function MarkdownPreviewPanel({
   markdownLabel,
   copyLabel,
   copiedLabel,
+  downloadLabel,
   emptyStateLabel,
   previewMode,
   markdown,
@@ -33,6 +36,7 @@ export function MarkdownPreviewPanel({
   hasCopied,
   onPreviewModeChange,
   onCopy,
+  onDownload,
 }: MarkdownPreviewPanelProps) {
   const hasContent = markdown.trim().length > 0;
 
@@ -44,9 +48,16 @@ export function MarkdownPreviewPanel({
           <p>{description}</p>
         </div>
 
-        <Button type="button" size="sm" rounded="sm" variant="outline" onClick={onCopy}>
-          {hasCopied ? copiedLabel : copyLabel}
-        </Button>
+        <div className={styles.buttonGroup}>
+          <Button type="button" size="sm" rounded="sm" variant="outline" onClick={onCopy}>
+            {hasCopied ? copiedLabel : copyLabel}
+          </Button>
+          {onDownload && (
+            <Button type="button" size="sm" rounded="sm" variant="outline" onClick={onDownload}>
+              {downloadLabel || "Download"}
+            </Button>
+          )}
+        </div>
       </header>
 
       <div className={styles.modeSwitch} role="tablist" aria-label={title}>

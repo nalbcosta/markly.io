@@ -11,6 +11,11 @@
   gap: 0.75rem;
 }
 
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .header h2 {
   margin: 0;
   font-size: 1.1rem;
@@ -136,4 +141,73 @@
 
 .compiledMarkdown :global(a) {
   color: var(--primary);
+}
+
+.compiledMarkdown :global(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.4rem;
+}
+
+.compiledMarkdown :global(hr) {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+.compiledMarkdown :global([align="center"]),
+.compiledMarkdown :global(center) {
+  text-align: center;
+}
+
+.compiledMarkdown :global(div),
+.compiledMarkdown :global(p) {
+  word-break: break-word;
+}
+
+.compiledMarkdown :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 0.75rem;
+  font-size: 0.95em;
+}
+
+.compiledMarkdown :global(th),
+.compiledMarkdown :global(td) {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.compiledMarkdown :global(th) {
+  background: color-mix(in srgb, var(--surface-alt) 80%, var(--surface));
+  font-weight: 600;
+}
+
+.compiledMarkdown :global(details) {
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0 0.75rem;
+}
+
+.compiledMarkdown :global(summary) {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.compiledMarkdown :global(blockquote) {
+  border-left: 3px solid var(--accent);
+  margin: 0 0 0.75rem;
+  padding: 0.2rem 0 0.2rem 1rem;
+  color: var(--text-secondary);
+}
+
+.compiledMarkdown :global(kbd) {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  border: 1px solid var(--border);
+  border-radius: 0.3rem;
+  padding: 0.1rem 0.4rem;
+  background: var(--surface-alt);
 }

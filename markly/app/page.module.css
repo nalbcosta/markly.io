@@ -35,7 +35,7 @@
 }
 
 .welcomeCard :global(.ui-text) {
-  color: var(--hero-text-secondary);
+  color: var(--text-secondary);
   line-height: 1.62;
   max-width: 64ch;
   text-align: center;

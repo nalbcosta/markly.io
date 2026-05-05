@@ -141,7 +141,7 @@
 
 .variantPrimary {
 	background: var(--primary);
-	border-color: var(--primary-hover);
+	border-color: var(--border);
 	color: #ffffff;
 	box-shadow: 0 8px 30px -24px rgba(79, 70, 229, 0.3);
 }

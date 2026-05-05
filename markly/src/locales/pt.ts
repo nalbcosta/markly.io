@@ -1,3 +1,5 @@
+import type { TemplateId } from "@/data/editorTemplates";
+
 export type TranslationDictionary = {
 	common: {
 		language: string;
@@ -117,15 +119,7 @@ export type TranslationDictionary = {
 		customFieldPlaceholder: string;
 		markdownFallbackTitle: string;
 		templates: {
-			profile: {
-				name: string;
-				description: string;
-			};
-			maintainer: {
-				name: string;
-				description: string;
-			};
-			freelancer: {
+			[K in TemplateId]: {
 				name: string;
 				description: string;
 			};
@@ -343,6 +337,10 @@ export const pt: TranslationDictionary = {
 		fieldTypeLabel: "Tipo do campo",
 		fieldTypeText: "Linha unica",
 		fieldTypeTextarea: "Texto longo",
+		fieldTypeMarkdown: "Markdown livre",
+		fieldTypeImageUrl: "URL de imagem/banner",
+		fieldTypeBadgeList: "Badges de tecnologia",
+		fieldTypeStatWidget: "Widget de stats do GitHub",
 		addFieldAction: "Adicionar campo",
 		removeFieldAction: "Remover",
 		emptyFields: "Nenhum campo no formulario. Adicione um campo para continuar.",
@@ -352,7 +350,10 @@ export const pt: TranslationDictionary = {
 		previewMarkdown: "Markdown",
 		copyMarkdown: "Copiar markdown",
 		copiedMarkdown: "Copiado",
+		downloadMarkdown: "Baixar .md",
 		emptyPreview: "Preencha o formulario para gerar o preview.",
+		insertSectionTitle: "Inserir bloco pronto",
+		insertSectionDescription: "Adicione um bloco pronto ao seu README",
 		customFieldPlaceholder: "Descreva o conteudo deste campo",
 		markdownFallbackTitle: "Meu README",
 		templates: {
@@ -367,6 +368,54 @@ export const pt: TranslationDictionary = {
 			freelancer: {
 				name: "Freelancer",
 				description: "Estrutura para apresentar experiencia, servicos e pontos de contato.",
+			},
+			student: {
+				name: "Estudante",
+				description: "Para estudantes de computacao e devs iniciantes com foco em aprendizado e projetos.",
+			},
+			researcher: {
+				name: "Pesquisador",
+				description: "Voltado para academicos e pesquisadores com publicacoes e experiencia cientifica.",
+			},
+			devops: {
+				name: "DevOps / SRE",
+				description: "Para engenheiros de infraestrutura com foco em automacao, cloud e observabilidade.",
+			},
+			designer: {
+				name: "Designer engineer",
+				description: "Para designers que codificam, com foco em UI/UX, portfolio e design systems.",
+			},
+			"data-scientist": {
+				name: "Cientista de dados",
+				description: "Para profissionais de dados e ML com foco em stack analitica e projetos de dados.",
+			},
+			"game-dev": {
+				name: "Game developer",
+				description: "Para desenvolvedores de jogos com foco em engine, ferramentas e titulos publicados.",
+			},
+			"tech-lead": {
+				name: "Tech lead",
+				description: "Para lideres tecnicos e gestores de engenharia com foco em experiencia e lideranca.",
+			},
+			fullstack: {
+				name: "Full-stack developer",
+				description: "Template completo para devs que atuam em frontend e backend com stack ampla.",
+			},
+			backend: {
+				name: "Backend engineer",
+				description: "Para especialistas em backend com foco em APIs, arquitetura e infraestrutura.",
+			},
+			frontend: {
+				name: "Frontend developer",
+				description: "Para devs frontend com foco em UI, acessibilidade e portfolio de interfaces.",
+			},
+			"open-source": {
+				name: "Contribuidor open source",
+				description: "Para quem contribui ativamente em projetos de codigo aberto e mantem bibliotecas.",
+			},
+			minimal: {
+				name: "Minimalista",
+				description: "Perfil enxuto e direto ao ponto com apenas o essencial.",
 			},
 		},
 		fields: {

@@ -59,6 +59,11 @@
   font-family: var(--font-body);
 }
 
-.code-block, .code-preview, .markdown-output {
+.code-block, .code-preview {
   font-family: var(--font-mono);
+}
+
+/* GitHub-style system font for rendered markdown */
+.markdown-output {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }

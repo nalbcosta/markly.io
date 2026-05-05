@@ -1,0 +1,121 @@
+[
+  {
+    "id": "wave-header",
+    "label": "Wave Header Banner",
+    "category": "banner",
+    "description": "Animated gradient wave at the top of your README.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://capsule-render.vercel.app/api?type=waving&color=6366f1,8b5cf6&height=140&section=header&text=Hi+there!&fontSize=40&fontColor=fff&animation=fadeIn\" width=\"100%\" />\n</div>"
+  },
+  {
+    "id": "wave-footer",
+    "label": "Wave Footer Banner",
+    "category": "banner",
+    "description": "Matching wave banner to close your README.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://capsule-render.vercel.app/api?type=waving&color=6366f1,8b5cf6&height=80&section=footer\" width=\"100%\" />\n</div>"
+  },
+  {
+    "id": "typing-animation",
+    "label": "Typing Animation",
+    "category": "banner",
+    "description": "Animated text that types and erases your role titles.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=500&lines=Full-Stack+Developer;Open+Source+Enthusiast\" alt=\"Typing SVG\" />\n</div>"
+  },
+  {
+    "id": "github-stats",
+    "label": "GitHub Stats Card",
+    "category": "stat",
+    "description": "Shows commits, PRs, issues and total stars.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=tokyonight&hide_border=true\" />\n</div>"
+  },
+  {
+    "id": "top-languages",
+    "label": "Top Languages Card",
+    "category": "stat",
+    "description": "Compact card with your most used programming languages.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=tokyonight&hide_border=true\" />\n</div>"
+  },
+  {
+    "id": "streak-stats",
+    "label": "Contribution Streak",
+    "category": "stat",
+    "description": "Current streak, longest streak and total contributions.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://github-readme-streak-stats.herokuapp.com/?user=yourusername&theme=tokyonight&hide_border=true\" />\n</div>"
+  },
+  {
+    "id": "trophies",
+    "label": "GitHub Trophies",
+    "category": "stat",
+    "description": "Achievement trophy row from your GitHub activity.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://github-profile-trophy.vercel.app/?username=yourusername&theme=tokyonight&no-frame=true&row=1&column=6\" />\n</div>"
+  },
+  {
+    "id": "profile-views",
+    "label": "Profile Views Counter",
+    "category": "badge",
+    "description": "Badge counting total visits to your GitHub profile.",
+    "markdown": "[![Profile Views](https://komarev.com/ghpvc/?username=yourusername&color=6366f1&style=flat&label=Profile+Views)](https://github.com/yourusername)"
+  },
+  {
+    "id": "skill-icons",
+    "label": "Skill Icons Row",
+    "category": "skills",
+    "description": "Tech stack icons using skillicons.dev — edit the icons list.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://skillicons.dev/icons?i=ts,react,nextjs,nodejs,postgres,docker&perline=6\" />\n</div>"
+  },
+  {
+    "id": "shields-stack",
+    "label": "Tech Stack Badges",
+    "category": "skills",
+    "description": "Inline shields.io badges for your main technologies.",
+    "markdown": "[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)\n[![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)\n[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org)"
+  },
+  {
+    "id": "social-badges",
+    "label": "Social Link Badges",
+    "category": "contact",
+    "description": "LinkedIn, Twitter and Portfolio contact badges.",
+    "markdown": "[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/yourusername)\n[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourusername)\n[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://yoursite.dev)"
+  },
+  {
+    "id": "sponsor-badge",
+    "label": "GitHub Sponsor Badge",
+    "category": "contact",
+    "description": "Call-to-action button to sponsor your work.",
+    "markdown": "[![Sponsor](https://img.shields.io/badge/Sponsor_this_work-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/yourusername)"
+  },
+  {
+    "id": "available-badge",
+    "label": "Available for Hire Badge",
+    "category": "badge",
+    "description": "Status badge showing you are open to opportunities.",
+    "markdown": "[![Available for hire](https://img.shields.io/badge/Status-Available%20for%20hire-22c55e?style=for-the-badge)](https://yoursite.dev)"
+  },
+  {
+    "id": "stats-pair",
+    "label": "Stats + Languages Side by Side",
+    "category": "stat",
+    "description": "GitHub Stats and Top Languages cards in the same row.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=tokyonight&hide_border=true\" height=\"165\" />\n<img src=\"https://github-readme-stats.vercel.app/api/top-langs/?username=yourusername&layout=compact&theme=tokyonight&hide_border=true\" height=\"165\" />\n</div>"
+  },
+  {
+    "id": "project-table",
+    "label": "Projects Table",
+    "category": "projects",
+    "description": "Markdown table listing your top projects with stars.",
+    "markdown": "| Project | Stars | Description |\n| --- | --- | --- |\n| **[project-one](https://github.com/yourusername/project-one)** | ⭐ 1.2k | Short description here |\n| **[project-two](https://github.com/yourusername/project-two)** | ⭐ 480 | Short description here |"
+  },
+  {
+    "id": "hr-divider",
+    "label": "Horizontal Divider",
+    "category": "layout",
+    "description": "A subtle horizontal rule to separate sections.",
+    "markdown": "---"
+  },
+  {
+    "id": "centered-logo",
+    "label": "Centered Logo / Avatar",
+    "category": "banner",
+    "description": "Display a logo or avatar image centered at the top.",
+    "markdown": "<div align=\"center\">\n<img src=\"https://avatars.githubusercontent.com/yourusername\" width=\"120\" style=\"border-radius:50%\" alt=\"Avatar\" />\n</div>"
+  }
+]

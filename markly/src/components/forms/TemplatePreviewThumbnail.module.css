@@ -10,6 +10,112 @@
     linear-gradient(145deg, color-mix(in srgb, var(--surface-alt) 75%, var(--surface)) 0%, var(--surface) 100%);
 }
 
-.image {
-  object-fit: cover;
+.previewScaler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  transform: scale(0.25);
+  transform-origin: top left;
+  padding: 1.5rem 2rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+.previewScaler :global(h1),
+.previewScaler :global(h2),
+.previewScaler :global(h3),
+.previewScaler :global(h4) {
+  margin: 1.2rem 0 0.55rem;
+  line-height: 1.25;
+}
+
+.previewScaler :global(h1) {
+  margin-top: 0;
+  font-size: 1.7rem;
+}
+
+.previewScaler :global(h2) {
+  font-size: 1.32rem;
+}
+
+.previewScaler :global(p) {
+  margin: 0 0 0.55rem;
+  color: var(--text-primary);
+}
+
+.previewScaler :global(ul) {
+  margin: 0.2rem 0 0.55rem;
+  padding-left: 1.2rem;
+}
+
+.previewScaler :global(li) {
+  margin-bottom: 0.2rem;
+}
+
+.previewScaler :global(a) {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.previewScaler :global(strong) {
+  font-weight: 600;
+}
+
+.previewScaler :global(em) {
+  font-style: italic;
+}
+
+.previewScaler :global(code) {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  border-radius: 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--border) 70%, var(--accent));
+  background: color-mix(in srgb, var(--surface-alt) 75%, var(--surface));
+  padding: 0.1rem 0.3rem;
+}
+
+.previewScaler :global(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.35rem;
+}
+
+.previewScaler :global(hr) {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1rem 0;
+}
+
+.previewScaler :global([align="center"]),
+.previewScaler :global(center) {
+  text-align: center;
+}
+
+.previewScaler :global(blockquote) {
+  border-left: 3px solid var(--accent);
+  margin: 0 0 0.5rem;
+  padding: 0.15rem 0 0.15rem 0.75rem;
+  color: var(--text-secondary);
+}
+
+.previewScaler :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 0.55rem;
+  font-size: 0.9em;
+}
+
+.previewScaler :global(th),
+.previewScaler :global(td) {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+}
+
+.previewScaler :global(th) {
+  background: color-mix(in srgb, var(--surface-alt) 80%, var(--surface));
+  font-weight: 600;
 }
